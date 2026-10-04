@@ -1,0 +1,12 @@
+# C# build output
+mod/bin/
+mod/obj/
+mod/raindash/plugins/
+# Android
+firetv/.gradle/
+firetv/build/
+firetv/app/build/
+firetv/local.properties
+*.apk
+.idea/
+node_modules/

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RainDash</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="rain" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="who">
+    <i class="ico slug-ico" id="slugIcon"></i>
+    <div>
+      <div class="rw title" id="slugName">RainDash</div>
+      <div class="sub" id="whereText">Waiting for Rain World…</div>
+    </div>
+  </div>
+
+  <div class="hud">
+    <div class="karma-wrap" title="Karma and rain timer">
+      <svg class="rain-ring" id="rainRing" viewBox="-50 -50 100 100"></svg>
+      <i class="ico karma" id="karmaIcon"></i>
+      <span class="karma-fallback rw" id="karmaFallback"></span>
+    </div>
+    <div class="hud-col">
+      <div class="food" id="foodPips"></div>
+      <div class="sub" id="rainText"></div>
+    </div>
+  </div>
+
+  <div class="right">
+    <button class="pill" id="campaignBtn" data-nav>Live campaign</button>
+    <div class="status"><span class="dot" id="statusDot"></span><span id="statusText">connecting</span></div>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button data-tab="overview" data-nav class="on"><span class="rw">Overview</span></button>
+  <button data-tab="kills" data-nav><span class="rw">Kills</span></button>
+  <button data-tab="campaign" data-nav><span class="rw" id="campaignTabLabel">Campaign</span></button>
+  <button data-tab="passages" data-nav><span class="rw">Passages</span></button>
+  <button data-tab="map" data-nav><span class="rw">Map</span></button>
+  <button data-tab="tracker" data-nav><span class="rw">Lifetime</span></button>
+</nav>
+
+<main>
+  <section id="tab-overview" class="tab on"></section>
+  <section id="tab-kills" class="tab"></section>
+  <section id="tab-campaign" class="tab"></section>
+  <section id="tab-passages" class="tab"></section>
+  <section id="tab-map" class="tab">
+    <div class="map-layout">
+      <div class="region-list" id="regionList"></div>
+      <div class="map-stage panel">
+        <div class="map-head">
+          <div class="rw h2" id="mapTitle">Map</div>
+          <div class="sub" id="mapSub"></div>
+        </div>
+        <canvas id="mapCanvas"></canvas>
+        <div class="legend">
+          <span><i class="lg-dot"></i>You</span>
+          <span><i class="lg-shelter"></i>Shelter</span>
+          <span><i class="lg-gate"></i>Karma gate (karma needed)</span>
+          <span><i class="lg-line"></i>Connection</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="tab-tracker" class="tab"></section>
+</main>
+
+<script src="font.js"></script>
+<script src="nav.js"></script>
+<script src="map.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

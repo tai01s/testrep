@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  html { font-size: calc(100vw / 96); }
+  body { margin: 0; background: #000; color: #fff; font-family: "Trebuchet MS", Roboto, sans-serif; height: 100vh; display: grid; place-items: center; }
+  .box { width: 60rem; border: .15rem solid rgba(169,164,178,.35); border-radius: .8rem; padding: 3rem 3.4rem; background: #0c0c10; }
+  h1 { font-size: 3.4rem; margin: 0 0 .4rem; letter-spacing: .02em; }
+  p { color: #a9a4b2; font-size: 1.5rem; line-height: 1.45; margin: .6rem 0; }
+  label { display: block; color: #a9a4b2; font-size: 1.3rem; text-transform: uppercase; letter-spacing: .08em; margin-top: 2rem; }
+  input { width: 100%; font: inherit; font-size: 2rem; padding: .8rem 1.2rem; margin-top: .6rem; background: #000; color: #fff; border: .15rem solid rgba(169,164,178,.5); border-radius: .6rem; }
+  .row { display: flex; gap: 1.2rem; margin-top: 1.6rem; }
+  button { font: inherit; font-size: 1.7rem; padding: .8rem 2rem; background: transparent; color: #a9a4b2; border: .15rem solid rgba(169,164,178,.5); border-radius: .6rem; }
+  input:focus, button:focus { outline: none; color: #fff; border-color: #fff; box-shadow: 0 0 1.4rem rgba(255,255,255,.3); }
+  #status { min-height: 2rem; color: #fff; }
+  code { color: #fff; }
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>RainDash</h1>
+  <p>Shows your Rain World stats from the PC running the RainDash mod. Normally the game opens this app for you; if it can’t, find the PC here.</p>
+  <label for="url">PC address (shown in the mod’s Remix options)</label>
+  <input id="url" placeholder="192.168.1.20:8787" autocomplete="off">
+  <div class="row">
+    <button id="go">Connect</button>
+    <button id="find">Find my PC</button>
+  </div>
+  <p id="status"></p>
+  <p>Remote: <code>⏪ ⏩</code> switch tabs · <code>☰</code> opens this screen · <code>Back</code> exits.</p>
+</div>
+<script>
+  const app = window.RainDashApp;
+  const input = document.getElementById('url');
+  const status = document.getElementById('status');
+  input.value = app ? app.getUrl() : '';
+  document.getElementById('go').onclick = () => {
+    if (!input.value.trim()) { status.textContent = 'Type the address first.'; return; }
+    status.textContent = 'Connecting…';
+    app && app.setUrl(input.value);
+  };
+  const find = () => {
+    status.textContent = 'Looking for Rain World on your network…';
+    app && app.discover();
+  };
+  document.getElementById('find').onclick = find;
+  window.onDiscovered = url => {
+    if (url) { status.textContent = 'Found ' + url; app.setUrl(url); }
+    else status.textContent = 'No PC answered. Is Rain World running with RainDash enabled, on the same network?';
+  };
+  // simple D-pad focus between the three controls
+  const order = [input, document.getElementById('go'), document.getElementById('find')];
+  document.addEventListener('keydown', e => {
+    const i = order.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown' && i === 0) { order[1].focus(); e.preventDefault(); }
+    else if (e.key === 'ArrowUp' && i > 0) { input.focus(); e.preventDefault(); }
+    else if (e.key === 'ArrowRight' && i === 1) { order[2].focus(); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' && i === 2) { order[1].focus(); e.preventDefault(); }
+  });
+  (input.value ? order[1] : input).focus();
+  if (!input.value) find();
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "id": "raindash",
+  "name": "RainDash",
+  "version": "1.0.0",
+  "authors": "tai01s",
+  "description": "A live stats dashboard for your campaign (kills, sleeps, deaths, passages, Artificer explosion counter, region maps with karma gates) served to your browser / Fire TV. Can auto-open the RainDash app on a Fire Stick when the game starts.",
+  "target_game_version": "v1.9.15b",
+  "requirements": [],
+  "requirements_names": [],
+  "tags": ["Tools"],
+  "checksum_override_version": false
+}

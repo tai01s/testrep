@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Build:  dotnet build -c Release -p:RainWorldDir="C:\Program Files (x86)\Steam\steamapps\common\Rain World"
+    Output goes to mod/raindash/plugins/RainDash.dll; copy (or symlink) mod/raindash into
+    <Rain World>\RainWorld_Data\StreamingAssets\mods\raindash and enable it in Remix.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>RainDash</AssemblyName>
+    <RootNamespace>RainDash</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>raindash\plugins\</OutputPath>
+    <DebugType>none</DebugType>
+    <RainWorldDir Condition="'$(RainWorldDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Rain World</RainWorldDir>
+    <Managed>$(RainWorldDir)\RainWorld_Data\Managed</Managed>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="raindash\**;tests\**" />
+    <None Remove="raindash\**;tests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Publicized game assembly + MonoMod hooks shipped with Rain World 1.9 (BepInEx). -->
+    <Reference Include="Assembly-CSharp"><HintPath>$(RainWorldDir)\BepInEx\utils\PUBLIC-Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="HOOKS-Assembly-CSharp"><HintPath>$(RainWorldDir)\BepInEx\plugins\HOOKS-Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="BepInEx"><HintPath>$(RainWorldDir)\BepInEx\core\BepInEx.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="MonoMod.RuntimeDetour"><HintPath>$(RainWorldDir)\BepInEx\core\MonoMod.RuntimeDetour.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="MonoMod.Utils"><HintPath>$(RainWorldDir)\BepInEx\core\MonoMod.Utils.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine"><HintPath>$(Managed)\UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(Managed)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.ImageConversionModule"><HintPath>$(Managed)\UnityEngine.ImageConversionModule.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+</Project>
