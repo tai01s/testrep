@@ -1,6 +1,7 @@
 # Default object strings as written by Geometry Dash when an object is placed.
 # Source: gmdkit (https://github.com/UHDanke/gmdkit), MIT License, Copyright (c) 2025 HDanke.
 OBJECT_DEFAULT = {
+    2899: '1,2899,2,0,3,0,36,1;',
     211: '1,211,2,0,3,0;',
     3802: '1,3802,2,0,3,0;',
     1888: '1,1888,2,0,3,0;',

@@ -75,7 +75,8 @@ class GmdFile:
 
     def write(self, path, new_level: str, object_count: int):
         enc = encode_level_string(new_level)
-        a, b = self._k4_span
+        m = re.search(r"<k>k4</k><s>(.*?)</s>", self.xml, re.S)  # locate at write time
+        a, b = m.span(1)
         xml = self.xml[:a] + enc + self.xml[b:]
         xml, n = re.subn(r"(<k>k48</k><i>)(\d+)(</i>)",
                          lambda m: f"{m.group(1)}{object_count}{m.group(3)}", xml, count=1)
