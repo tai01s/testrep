@@ -22,8 +22,12 @@ import random
 
 from deco_lib import Scene, jitter_line, triangulate
 from gdobj import (B5, B4, B3, B2, B1, T1, T2, T3, Obj, TARGET, OPACITY, DURATION,
-                   HIGH_DETAIL, SPAWN_TRIG, MULTI_TRIG)
+                   HIGH_DETAIL, SPAWN_TRIG, MULTI_TRIG, HIDE, EDITOR_L1)
 from particles import particle_string, TEX
+from style_rock import (facet_fill, shades, rock_palette, MID_SHADES, FAR_SHADES, masonry_slab,
+                        block_face, basalt_columns, neural_crack, point_in_poly)
+from style_hazards import spike_details, saw_details
+from style_atmos import debris, lavafall, bokeh, bob_loop, rotate_loop, stop_groups
 
 # ----------------------------------------------------------------- timing
 SPEED_PORTALS = [(789.0, 387.42), (3405.0, 468.0)]  # inside this section
@@ -108,6 +112,22 @@ def palette(sc: Scene):
     C("fg", (3, 1, 2))
     C("orb_back", (0, 0, 0), 0.65, False)
     C("plat_glow", (255, 90, 24), 0.70, True)
+    # v2: block design, hazard detail, atmosphere
+    C("bevel_warm", (74, 18, 12))
+    C("mortar", (120, 30, 14))
+    C("seam_glow", (255, 90, 26), 0.35, True)
+    C("rune", (190, 52, 20))
+    C("rune_glow", (255, 80, 24), 0.35, True)
+    C("joint", (3, 1, 2))
+    C("spike_core", (16, 4, 6))
+    C("spike_vein", (255, 122, 44))
+    C("tip_glow", (255, 196, 120), 0.85, True)
+    C("bead", (255, 160, 80), 0.80, True)
+    C("fog_far", (70, 16, 14), 0.30, True)
+    C("fog_mid", (60, 12, 10), 0.22, True)
+    rock_palette(sc)
+    shades(sc, "mid", MID_SHADES)
+    shades(sc, "far", FAR_SHADES)
 
 
 # --------------------------------------------------------------- spires
@@ -163,7 +183,7 @@ def edges_facing(pts, cond):
 
 
 # ----------------------------------------------------------- far layer
-def far_layer(sc: Scene, g_far, g_core, g_web, wave_groups):
+def far_layer(sc: Scene, g_far, g_core, g_web, wave_groups, g_knot, g_knot_c):
     rng = random.Random(11)
     ch = sc.ch
     core = world_from_screen(FAR_M, (150.0, 95.0))
@@ -234,29 +254,41 @@ def far_layer(sc: Scene, g_far, g_core, g_web, wave_groups):
             mid = pt((a1 + a2) / 2, r * 0.955)       # inward sag
             sc.seg(p, mid, 1.6, ch("web"), B5, -21, (g_far, g_web, wave_groups[b]), "far")
             sc.seg(mid, q, 1.6, ch("web"), B5, -21, (g_far, g_web, wave_groups[b]), "far")
+            # molten beads at some junctions: they catch every pulse wave
+            if rng.random() < 0.3:
+                sc.glow(p[0], p[1], rng.uniform(8, 13), ch("bead"), B5, -18,
+                        (g_far, g_web, wave_groups[b]), "far", kind="S", high_detail=True)
 
     # ---- cerebral core
     for d, c, zo in ((520, "glow_deep", -12), (300, "core_r", -11), (160, "core_o", -10)):
         sc.glow(cx, cy, d, ch(c), B5, zo, (g_far, g_core), "far")
     sc.glow(cx, cy, 74, ch("glow_hot"), B5, -9, (g_far, g_core), "far", kind="M")
     sc.glow(cx, cy, 34, ch("core_w"), B5, -2, (g_far, g_core), "far", kind="S")
-    # neural knot: molten arcs + dendrites
+    # neural knot: molten arcs + dendrites (the knot slowly turns, see sync)
+    gk = (g_far, g_core, g_knot)
     for k in range(9):
         r = rng.uniform(22, 46)
         a0 = rng.uniform(0, 360)
         span = rng.uniform(50, 110)
         pts = [(cx + r * math.cos(math.radians(a0 + span * s / 4)),
                 cy + r * math.sin(math.radians(a0 + span * s / 4)) * 0.85) for s in range(5)]
-        sc.polyline(pts, 2.4, ch("crack"), B5, -5, (g_far, g_core), "far")
+        sc.polyline(pts, 2.4, ch("crack"), B5, -5, gk, "far")
         if k % 3 == 0:
-            sc.polyline(pts[1:4], 1.0, ch("crack_core"), B5, -4, (g_far, g_core), "far")
+            sc.polyline(pts[1:4], 1.0, ch("crack_core"), B5, -4, gk, "far")
     for k in range(7):
         a = math.radians(rng.uniform(0, 360))
         p = (cx + 40 * math.cos(a), cy + 40 * math.sin(a))
         q = (cx + rng.uniform(75, 110) * math.cos(a + 0.12), cy + rng.uniform(75, 110) * math.sin(a + 0.12))
-        sc.seg(p, q, 1.6, ch("crack"), B5, -6, (g_far, g_core), "far")
+        sc.seg(p, q, 1.6, ch("crack"), B5, -6, gk, "far")
         br = (q[0] + 22 * math.cos(a + 0.9), q[1] + 22 * math.sin(a + 0.9))
-        sc.seg(q, br, 1.1, ch("crack"), B5, -6, (g_far, g_core), "far")
+        sc.seg(q, br, 1.1, ch("crack"), B5, -6, gk, "far")
+        sc.glow(q[0], q[1], 12, ch("bead"), B5, -7, gk, "far", kind="S", high_detail=True)
+    # rotation centre: a hidden marker that moves with the far layer
+    o = Obj(3802, cx, cy)
+    o.set(HIDE, 1)
+    o.set(EDITOR_L1, 30)
+    o.add_groups(g_far, g_knot_c)
+    sc.add(o)
 
     # ---- far spires (gradient fill on B5, rims on B4)
     bottoms = [(-480, 340, 170, 20), (-250, 250, 130, -10), (20, 190, 110, -8),
@@ -264,21 +296,32 @@ def far_layer(sc: Scene, g_far, g_core, g_web, wave_groups):
                (1010, 270, 140, 12)]
     tops = [(-400, -250, 150, 10), (-120, -170, 110, 8), (480, -240, 130, 15),
             (720, -290, 160, -10), (980, -230, 130, -6)]
-    for sx, H, W, lean in bottoms:
+    far_pal = shades(sc, "far", FAR_SHADES)
+    for n, (sx, H, W, lean) in enumerate(bottoms):
         base = world_from_screen(FAR_M, (sx, -330))
         poly, tip = spire(rng, base, H + 30, W, lean, jag=0.09, spurs=1, rows=5)
-        sc.gpoly(poly, ch("far_rock"), "b5", (g_far,))
-        # rim on the side facing the core
+        # rim on the side facing the core; facets on that side catch its light
         side = 1 if base[0] < cx else -1
-        for a, b in edges_facing(poly, lambda nx, ny, s=side: nx * s > 0.55):
+        lit = list(edges_facing(poly, lambda nx, ny, s=side: nx * s > 0.55))
+        facet_fill(sc, poly, "b5", (g_far,), lit_edges=lit, near=120, growth=0.6, far=240,
+                   lit_range=80, seed=300 + n, palette=far_pal, ambient=0.9, gain=(2.0, 1.2),
+                   jitter=0.3)
+        for a, b in lit:
             sc.seg(a, b, 1.3, ch("far_rim"), B4, -10, (g_far,), "far", extend=1.0)
-    for sx, H, W, lean in tops:
+    for n, (sx, H, W, lean) in enumerate(tops):
         base = world_from_screen(FAR_M, (sx, 330))
         poly, tip = spire(rng, base, H - 30, W, lean, jag=0.09, spurs=1, rows=5)
-        sc.gpoly(poly, ch("far_rock"), "b5", (g_far,))
-        for a, b in edges_facing(poly, lambda nx, ny: ny < -0.25):
+        lit = list(edges_facing(poly, lambda nx, ny: ny < -0.25))
+        facet_fill(sc, poly, "b5", (g_far,), lit_edges=lit, near=120, growth=0.6, far=240,
+                   lit_range=80, seed=320 + n, palette=far_pal, ambient=0.9, gain=(2.0, 1.2),
+                   jitter=0.3)
+        for a, b in lit:
             sc.seg(a, b, 1.6, ch("far_rim"), B4, -10, (g_far,), "far", extend=1.0)
         sc.glow(tip[0], tip[1] - 6, 46, ch("glow_o"), B4, -12, (g_far,), "far", kind="S")
+    # depth fog between the far and mid planes
+    for sx in range(-420, 1100, 260):
+        x, y = world_from_screen(FAR_M, (sx + rng.uniform(-40, 40), -120 + rng.uniform(-30, 30)))
+        sc.glow(x, y, 420, ch("fog_far"), B4, -30, (g_far,), "far", high_detail=True)
     return core
 
 
@@ -291,14 +334,18 @@ def mid_layer(sc: Scene, g_mid):
               (1640, 310, 210, -14)]
     hanging = [(-150, 570, 190, -10), (210, 610, 200, -8), (540, 650, 180, 12),
                (870, 590, 210, -16), (1190, 640, 190, 10), (1520, 600, 210, -12)]
-    for x, tip_y, W, lean in rising:
+    mid_pal = shades(sc, "mid", MID_SHADES)
+    for n, (x, tip_y, W, lean) in enumerate(rising):
         base = (x, -160.0)
         poly, tip = spire(rng, base, tip_y + 160, W, lean, jag=0.08, spurs=2, rows=6)
-        sc.gpoly(poly, ch("mid_rock"), "b4", (g_mid,))
         # lava light on the lower part of both flanks
-        for a, b in edges_facing(poly, lambda nx, ny: abs(nx) > 0.6):
-            if max(a[1], b[1]) < 150:
-                sc.seg(a, b, 2.0, ch("mid_rim"), B3, -10, (g_mid,), "mid", extend=1.5)
+        lit = [(a, b) for a, b in edges_facing(poly, lambda nx, ny: abs(nx) > 0.6)
+               if max(a[1], b[1]) < 150]
+        facet_fill(sc, poly, "b4", (g_mid,), lit_edges=lit, near=110, growth=0.7, far=240,
+                   lit_range=110, seed=400 + n, palette=mid_pal, ambient=0.7, gain=(2.6, 1.6),
+                   jitter=0.3, coarse=lambda p: 1.0 + max(0.0, 20 - p[1]) / 40.0)
+        for a, b in lit:
+            sc.seg(a, b, 2.0, ch("mid_rim"), B3, -10, (g_mid,), "mid", extend=1.5)
         # vein
         if rng.random() < 0.7:
             vx = x + rng.uniform(-W * 0.12, W * 0.12)
@@ -308,11 +355,14 @@ def mid_layer(sc: Scene, g_mid):
                 d = rng.choice((-1, 1))
                 sc.seg(p, (p[0] + d * rng.uniform(10, 22), p[1] + rng.uniform(8, 20)), 1.2,
                        ch("crack"), B3, -8, (g_mid,), "mid")
-    for x, tip_y, W, lean in hanging:
+    for n, (x, tip_y, W, lean) in enumerate(hanging):
         base = (x, 1260.0)
         poly, tip = spire(rng, base, tip_y - 1260, W, lean, jag=0.08, spurs=2, rows=6)
-        sc.gpoly(poly, ch("mid_rock"), "b4", (g_mid,))
-        for a, b in edges_facing(poly, lambda nx, ny: ny < -0.2):
+        lit = list(edges_facing(poly, lambda nx, ny: ny < -0.2))
+        facet_fill(sc, poly, "b4", (g_mid,), lit_edges=lit, near=110, growth=0.7, far=240,
+                   lit_range=90, seed=420 + n, palette=mid_pal, ambient=0.7, gain=(2.6, 1.6),
+                   jitter=0.3, coarse=lambda p: 1.0 + max(0.0, p[1] - 880) / 40.0)
+        for a, b in lit:
             sc.seg(a, b, 2.2, ch("mid_rim"), B3, -10, (g_mid,), "mid", extend=1.5)
         sc.glow(tip[0], tip[1] - 4, 70, ch("glow_o"), B3, -12, (g_mid,), "mid", kind="M")
     # lava-lit haze in front of the mid spire bases
@@ -412,128 +462,164 @@ def cracks_from(sc, rng, origin, direction, length, groups=(), z=B2, layer="rim"
         sc.seg(p, q, 1.4, sc.ch("crack"), z, -4, groups, layer, extend=1.2)
 
 
-def structures(sc: Scene):
+def lower_edges(poly, y_max):
+    n = len(poly)
+    return [(poly[i], poly[(i + 1) % n]) for i in range(n)
+            if max(poly[i][1], poly[(i + 1) % n][1]) < y_max]
+
+
+def structures(sc: Scene, g_bands):
+    """Gameplay-depth rock.
+
+    Rock masses are faceted gradients (b3). Every layout cell gets brickwork or
+    a block face on B3, kept outside the rock polygons so no gradient ever
+    covers it. Molten edges, rims and cracks sit on B2, glows on B1/B2."""
     rng = random.Random(41)
     ch = sc.ch
-    rock = ch("near_rock")
 
-    # ---- ceiling mass above the sloped roof
+    def band(x):
+        return g_bands[max(0, min(len(g_bands) - 1, int((x + 400) // 220)))]
+
+    # ---- ceiling mass above the sloped roof (the cell at 855,585 is cut out)
     left_under = [(-380, 905), (-330, 900), (-290, 840), (-262, 772), (-240, 840), (-205, 905),
                   (-160, 892), (-128, 846), (-108, 812), (-92, 850), (-70, 894), (-30, 884),
                   (10, 892), (40, 862), (52, 846), (66, 866), (90, 880), (120, 870)]
     right_edge = [(1110, 690), (1124, 712), (1140, 748), (1162, 780), (1196, 808), (1236, 880),
                   (1262, 960), (1286, 1060), (1300, 1150), (1310, 1400)]
-    ceiling = left_under + CEILING_LINE[1:] + right_edge[1:] + [(-380, 1400)]
-    sc.gpoly(ceiling, rock, "b3")
-    # molten underside: glow just below the roof line + veins going up into the rock
+    under = CEILING_LINE[1:4] + [(840, 600), (870, 600)] + CEILING_LINE[4:]
+    ceiling = left_under + under + right_edge[1:] + [(-380, 1400)]
+    lit = (list(zip(left_under, left_under[1:])) + list(zip([left_under[-1]] + under, under))
+           + [(a, b, 0.8) for a, b in zip(right_edge[:6], right_edge[1:6])])
+    facet_fill(sc, ceiling, "b3", (), lit_edges=lit, near=48, growth=1.1, far=320, lit_range=120,
+               seed=1, max_tris=900,
+               coarse=lambda p: 1.0 + max(0.0, p[1] - 900) / 45.0 + max(0.0, -150 - p[0]) / 30.0)
+    inside_ceiling = lambda q: point_in_poly(q, ceiling)
+    # molten underside: glow just below the roof line + dendrite cracks going up
     for a, b in zip(CEILING_LINE, CEILING_LINE[1:]):
+        if a[0] == b[0] or (a[0], b[0]) == (840, 870):
+            continue
         molten_line_glow(sc, a, b, 34, 44, "glow_o", offset=(0, -6))
         L = math.hypot(b[0] - a[0], b[1] - a[1])
-        n = int(L // 70)
+        n = int(L // 64)
         for i in range(n):
             t = (i + rng.uniform(0.2, 0.8)) / max(n, 1)
             p = (a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t + 3)
-            cracks_from(sc, rng, p, 90 + rng.uniform(-25, 25), rng.uniform(26, 70),
-                        inside=lambda q: q[1] > roof_y(q[0]) + 4)
-    # stalactite tips of the overhang: hot tips + rim on downward faces
+            neural_crack(sc, rng, p, 90 + rng.uniform(-25, 25), rng.uniform(34, 80),
+                         (band(p[0]),), inside=inside_ceiling)
+    # stalactite tips of the overhang: hot tips, rims on the downward faces, a crack up
     for i in range(1, len(left_under) - 1):
         p = left_under[i]
         if p[1] < left_under[i - 1][1] and p[1] < left_under[i + 1][1]:
             sc.glow(p[0], p[1] + 4, 40, ch("glow_o"), B2, -6, (), "glow", kind="S")
             sc.seg(left_under[i - 1], p, 1.8, ch("rim_hot"), B2, -5, (), "rim", extend=1.5)
             sc.seg(p, left_under[i + 1], 1.8, ch("rim_hot"), B2, -5, (), "rim", extend=1.5)
+            neural_crack(sc, rng, (p[0], p[1] + 4), 90 + rng.uniform(-12, 12),
+                         rng.uniform(40, 70), (band(p[0]),), inside=inside_ceiling)
     for a, b in zip(right_edge, right_edge[1:5]):
         sc.seg(a, b, 1.8, ch("rim_hot"), B2, -5, (), "rim", extend=1.5)
+    # the cell at the bottom of the V, with its spike hanging under it
+    block_face(sc, 855, 585, rng, lit="bottom")
+    sc.seg((841, 571), (869, 571), 1.8, ch("rim_hot"), B2, -5, (), "rim")
 
-    # ---- small block hanging under the roof at x=607 + its stub
-    sc.gpoly([(592, 630), (622, 630), (622, 660), (592, 660)], rock, "b3")
-    sc.gpoly([(600, 658), (614, 658), (612, 690), (602, 692)], rock, "b3")
+    # ---- small block hanging under the roof at x=607 + the stub holding it
+    block_face(sc, 607, 645, rng, lit="bottom")
+    facet_fill(sc, [(598, 660), (616, 660), (613, 690), (601, 692)], "b3", (),
+               lit_edges=[((598, 660), (616, 660))], near=60, lit_range=30, seed=5)
     sc.seg((607, 662), (607, 688), 1.6, ch("crack"), B2, -4, (), "rim")
+    sc.seg((593, 631), (621, 631), 1.8, ch("rim_hot"), B2, -5, (), "rim")
 
-    # ---- start platform: obsidian slab over a floating stalactite
-    p0 = [(14, 600), (254, 600), (254, 570), (238, 548), (226, 520), (210, 506), (196, 476),
-          (182, 456), (168, 418), (156, 384), (146, 352), (138, 330), (128, 360), (116, 396),
-          (102, 430), (86, 456), (70, 478), (56, 502), (40, 526), (26, 548), (14, 570)]
-    sc.gpoly(p0, rock, "b3")
-    sc.gpoly([(186, 600), (216, 600), (216, 630), (186, 630)], rock, "b3")
-    for a, b in edges_facing(p0, lambda nx, ny: ny < -0.15):
+    # ---- start platform: forged slab over a floating stalactite
+    p0 = [(14, 570), (254, 570), (238, 548), (226, 520), (210, 506), (196, 476), (182, 456),
+          (168, 418), (156, 384), (146, 352), (138, 330), (128, 360), (116, 396), (102, 430),
+          (86, 456), (70, 478), (56, 502), (40, 526), (26, 548)]
+    lit0 = [(a, b) for a, b in edges_facing(p0, lambda nx, ny: ny < -0.15)]
+    facet_fill(sc, p0, "b3", (), lit_edges=lit0, near=34, growth=0.8, far=90, lit_range=60,
+               seed=2, aniso=(1.0, 1.7))
+    masonry_slab(sc, 14, 570, 254, 600, rng, lit="top")
+    block_face(sc, 201, 615, rng, lit="top")
+    for a, b in lit0:
         if a[1] < 569 and b[1] < 569:
             sc.seg(a, b, 2.0, ch("rim_hot"), B2, -5, (), "rim", extend=1.5)
     sc.glow(138, 336, 60, ch("glow_o"), B2, -6, (), "glow", kind="M")
     for x in (62, 118, 172, 226):
-        cracks_from(sc, rng, (x + rng.uniform(-8, 8), 572), -90 + rng.uniform(-25, 25),
-                    rng.uniform(40, 90), branches=1,
-                    inside=lambda q: q[1] < 596 and point_in_poly(q, p0))
+        neural_crack(sc, rng, (x + rng.uniform(-8, 8), 567), -90 + rng.uniform(-22, 22),
+                     rng.uniform(50, 100), inside=lambda q: q[1] < 568 and point_in_poly(q, p0))
     molten_line_glow(sc, (16, 600), (252, 600), 22, 40, "glow_o", offset=(0, 5))
 
     # ---- L-structure (x 780-870) on a pillar rising from the lava
-    f1 = [(780, 510), (870, 510), (870, 390), (874, 340), (884, 290), (896, 240), (905, 190),
-          (915, 140), (932, 96), (962, lava_y(962) + 2), (788, lava_y(788) + 2), (810, 96),
-          (824, 150), (832, 220), (837, 300), (840, 360), (840, 480), (780, 480)]
-    sc.gpoly(f1, rock, "b3")
-    pillar_details(sc, rng, f1, x_center=872)
+    f1 = [(840, 390), (870, 390), (874, 340), (884, 290), (896, 240), (905, 190), (915, 140),
+          (932, 96), (962, lava_y(962) + 2), (788, lava_y(788) + 2), (810, 96), (824, 150),
+          (832, 220), (837, 300), (840, 360)]
+    facet_fill(sc, f1, "b3", (), lit_edges=lower_edges(f1, 230), near=26, growth=0.55, far=110,
+               lit_range=150, seed=3, aniso=(1.0, 2.6))
+    masonry_slab(sc, 780, 480, 870, 510, rng, lit="top")
+    masonry_slab(sc, 840, 390, 870, 480, rng, lit="top", courses=3, brick=(30, 30))
+    pillar_details(sc, rng, f1, 872, (796, 950), 380)
     molten_line_glow(sc, (782, 510), (868, 510), 22, 40, "glow_o", offset=(0, 5))
+    sc.seg((841, 391), (869, 391), 1.8, ch("rim_hot"), B2, -5, (), "rim")
 
     # ---- floating block at 959,525
-    sc.gpoly([(944, 510), (974, 510), (974, 540), (944, 540)], rock, "b3")
+    block_face(sc, 959, 525, rng, lit="top")
     molten_line_glow(sc, (946, 540), (972, 540), 26, 34, "glow_o", offset=(0, 4))
+    sc.seg((945, 511), (973, 511), 1.8, ch("rim_hot"), B2, -5, (), "rim")
 
-    # ---- block at 1165 on a stalk + floor platform 1215-1305 on its own support
-    f2 = [(1150, 588), (1180, 588), (1180, 558), (1179, 500), (1182, 440), (1190, 390),
-          (1203, 345), (1214, 380), (1210, 420), (1204, 455), (1200, 480), (1200, 510),
-          (1320, 510), (1320, 480), (1316, 445), (1310, 400), (1306, 350), (1308, 300),
-          (1316, 250), (1330, 200), (1350, 150), (1372, 100), (1400, lava_y(1400) + 2),
-          (1040, lava_y(1040) + 2), (1068, 100), (1092, 150), (1110, 200), (1124, 250),
-          (1134, 300), (1141, 350), (1146, 400), (1149, 450), (1150, 500), (1150, 558)]
-    sc.gpoly(f2, rock, "b3")
-    pillar_details(sc, rng, f2, x_center=1220)
+    # ---- block at 1165 on a stalk + floor platform 1200-1320 on its own support
+    f2 = [(1150, 558), (1180, 558), (1179, 500), (1182, 440), (1190, 390), (1203, 345),
+          (1214, 380), (1210, 420), (1204, 455), (1200, 480), (1320, 480), (1316, 445),
+          (1310, 400), (1306, 350), (1308, 300), (1316, 250), (1330, 200), (1350, 150),
+          (1372, 100), (1400, lava_y(1400) + 2), (1040, lava_y(1040) + 2), (1068, 100),
+          (1092, 150), (1110, 200), (1124, 250), (1134, 300), (1141, 350), (1146, 400),
+          (1149, 450), (1150, 500)]
+    facet_fill(sc, f2, "b3", (), lit_edges=lower_edges(f2, 230), near=36, growth=0.8, far=130,
+               lit_range=150, seed=4, aniso=(1.0, 2.6))
+    masonry_slab(sc, 1200, 480, 1320, 510, rng, lit="top")
+    block_face(sc, 1165, 573, rng, lit="top")
+    pillar_details(sc, rng, f2, 1220, (1060, 1380), 470)
     molten_line_glow(sc, (1202, 510), (1318, 510), 22, 40, "glow_o", offset=(0, 5))
     molten_line_glow(sc, (1152, 588), (1178, 588), 26, 34, "glow_o", offset=(0, 4))
 
     # ---- structure 1668-1998: roof slab with hanging column (mass above only)
     # slab hangs from a stem that narrows upward, leaving windows to the far web/core
-    roof = [(1668, 508), (1698, 508), (1698, 568), (1998, 568), (2000, 600), (1978, 628),
-            (1946, 652), (1918, 690), (1898, 740), (1886, 800), (1880, 880), (1884, 980),
-            (1892, 1100), (1900, 1400), (1756, 1400), (1764, 1100), (1772, 980), (1776, 880),
-            (1770, 800), (1756, 742), (1732, 694), (1704, 656), (1680, 628), (1668, 600)]
-    sc.gpoly(roof, rock, "b3")
-    for a, b in zip(roof[4:9], roof[5:10]):
-        sc.seg(a, b, 1.8, ch("rim_hot"), B2, -5, (), "rim", extend=1.5)
-    for a, b in zip(roof[18:23], roof[19:24]):
-        sc.seg(a, b, 1.8, ch("rim_hot"), B2, -5, (), "rim", extend=1.5)
+    roof = [(1668, 598), (1998, 598), (1978, 628), (1946, 652), (1918, 690), (1898, 740),
+            (1886, 800), (1880, 880), (1884, 980), (1892, 1100), (1900, 1400), (1756, 1400),
+            (1764, 1100), (1772, 980), (1776, 880), (1770, 800), (1756, 742), (1732, 694),
+            (1704, 656), (1680, 628)]
+    roof_lit = [(a, b) for a, b in lower_edges(roof, 820) if not (a[1] == 598 and b[1] == 598)]
+    facet_fill(sc, roof, "b3", (), lit_edges=roof_lit, near=36, growth=0.8, far=220,
+               lit_range=110, seed=6, coarse=lambda p: 1.0 + max(0.0, p[1] - 900) / 45.0)
+    for a, b in roof_lit:
+        if max(a[1], b[1]) < 760:
+            sc.seg(a, b, 1.8, ch("rim_hot"), B2, -5, (), "rim", extend=1.5)
+    masonry_slab(sc, 1668, 508, 1698, 598, rng, lit="bottom", courses=3, brick=(30, 30))
+    masonry_slab(sc, 1698, 568, 1998, 598, rng, lit="bottom")
     molten_line_glow(sc, (1700, 568), (1996, 568), 34, 44, "glow_o", offset=(0, -6))
-    for x in range(1720, 1990, 70):
-        cracks_from(sc, rng, (x + rng.uniform(-10, 10), 571), 90 + rng.uniform(-25, 25),
-                    rng.uniform(30, 70), inside=lambda q: q[1] > 572)
+    inside_roof = lambda q: point_in_poly(q, roof)
+    for x in range(1700, 1990, 48):
+        neural_crack(sc, rng, (x + rng.uniform(-10, 10), 601), 90 + rng.uniform(-25, 25),
+                     rng.uniform(40, 90), (band(x),), inside=inside_roof)
     sc.seg((1668, 509), (1698, 509), 2.0, ch("rim_hot"), B2, -5, (), "rim")
     # floor tower: only its own cells (the dip path may pass underneath)
-    sc.gpoly([(1668, 360), (1728, 360), (1728, 450), (1698, 450), (1698, 390), (1668, 390)],
-             rock, "b3")
+    masonry_slab(sc, 1668, 360, 1728, 390, rng, lit="top")
+    masonry_slab(sc, 1698, 390, 1728, 450, rng, lit="top", courses=2, brick=(30, 30))
     sc.seg((1669, 361), (1727, 361), 2.0, ch("rim_hot"), B2, -5, (), "rim")
+    molten_line_glow(sc, (1700, 450), (1726, 450), 26, 34, "glow_o", offset=(0, 4))
 
     # ---- hanging rock chunk above x 2100-2200 that the last hazards hang from
     chunk = [(2080, 1400), (2085, 980), (2100, 900), (2118, 852), (2138, 820), (2152, 846),
              (2170, 830), (2188, 860), (2206, 920), (2220, 1000), (2226, 1400)]
-    sc.gpoly(chunk, rock, "b3")
+    chunk_lit = list(zip(chunk[2:9], chunk[3:10]))
+    facet_fill(sc, chunk, "b3", (), lit_edges=chunk_lit, near=32, growth=0.8, far=160,
+               lit_range=90, seed=7, coarse=lambda p: 1.0 + max(0.0, p[1] - 960) / 40.0)
     for i in (4, 6):
         sc.glow(chunk[i][0], chunk[i][1] + 3, 40, ch("glow_o"), B2, -6, (), "glow", kind="S")
-    for a, b in zip(chunk[2:9], chunk[3:10]):
+    for a, b in chunk_lit:
         sc.seg(a, b, 1.8, ch("rim_hot"), B2, -5, (), "rim", extend=1.5)
+    for p in (chunk[4], chunk[6]):
+        neural_crack(sc, rng, (p[0], p[1] + 4), 90 + rng.uniform(-10, 10), rng.uniform(60, 100),
+                     (band(p[0]),), inside=lambda q: point_in_poly(q, chunk))
 
 
-def point_in_poly(p, poly):
-    x, y = p
-    inside = False
-    n = len(poly)
-    for i in range(n):
-        (x1, y1), (x2, y2) = poly[i], poly[(i + 1) % n]
-        if (y1 > y) != (y2 > y):
-            if x < x1 + (y - y1) * (x2 - x1) / (y2 - y1):
-                inside = not inside
-    return inside
-
-
-def pillar_details(sc, rng, poly, x_center):
+def pillar_details(sc, rng, poly, x_center, x_range, y_top):
     ch = sc.ch
     # rim light from the lava on the lower flanks
     for a, b in edges_facing(poly, lambda nx, ny: abs(nx) > 0.55):
@@ -541,11 +627,14 @@ def pillar_details(sc, rng, poly, x_center):
             sc.seg(a, b, 2.0, ch("rim_hot"), B2, -5, (), "rim", extend=1.5)
     # contact glow where the pillar meets the lava
     sc.glow(x_center, lava_y(x_center) + 20, 200, ch("glow_o"), B2, -7, (), "glow")
-    # veins rising from the lava
+    # columnar joints, warm low on the pillar
+    basalt_columns(sc, poly, x_range[0], x_range[1], LAVA_Y + 8, min(y_top, 300), rng,
+                   width=(26, 40), lit_below=120)
+    # dendrite veins rising from the lava
     for k in range(3):
         x = x_center + rng.uniform(-50, 30)
-        cracks_from(sc, rng, (x, lava_y(x) + 6), 90 + rng.uniform(-14, 14), rng.uniform(70, 150),
-                    branches=2, inside=lambda q: point_in_poly(q, poly))
+        neural_crack(sc, rng, (x, lava_y(x) + 6), 90 + rng.uniform(-14, 14), rng.uniform(80, 160),
+                     inside=lambda q: point_in_poly(q, poly))
 
 
 # ---------------------------------------------- hazard glows + threads
@@ -554,7 +643,7 @@ SAW_DIAM = {"1735": 130, "187": 120, "680": 90, "679": 120, "1709": 130}
 ORBS = {"36", "84", "141", "1022", "1330", "1333", "1704", "1751"}
 
 
-def hazards(sc: Scene, layout_objs, x0=-50, x1=2700):
+def hazards(sc: Scene, layout_objs, g_tips, x0=-50, x1=2700):
     ch = sc.ch
     seen_saws = set()
     for o in layout_objs:
@@ -563,7 +652,7 @@ def hazards(sc: Scene, layout_objs, x0=-50, x1=2700):
         if not (x0 <= x <= x1):
             continue
         if oid in HAZARD_DIAM:
-            sc.glow(x, y, HAZARD_DIAM[oid], ch("spike_glow"), B2, -2, (), "glow", kind="S")
+            sc.glow(x, y, HAZARD_DIAM[oid] * 0.85, ch("spike_glow"), B2, -2, (), "glow", kind="S")
         elif oid in SAW_DIAM and (x, y) not in seen_saws:
             seen_saws.add((x, y))
             sc.glow(x, y, SAW_DIAM[oid] * 1.1, ch("spike_glow"), B2, -2, (), "glow", kind="L")
@@ -571,6 +660,9 @@ def hazards(sc: Scene, layout_objs, x0=-50, x1=2700):
         elif oid in ORBS:
             s = float(o.get("128", 1))
             sc.glow(x, y, 64 * s, ch("orb_back"), B2, 2, (), "glow", kind="M")
+    # v2: obsidian cores, molten veins, hot tips (flash on the beat), saw housings
+    spike_details(sc, layout_objs, x0, x1, tip_group=g_tips)
+    saw_details(sc, layout_objs, x0, x1)
     return seen_saws
 
 
@@ -632,6 +724,29 @@ def particles(sc: Scene, saws, g_plat):
     for x in range(100, 2701, 650):
         sc.particles(x, 300, ember_string(70, 120, life=6.0, up_speed=30, size=2.4, emission=1.4,
                                           maxp=12), T2, 0)
+    # dark ash drifting down (reads against the bright haze and the lava)
+    ash = particle_string(max_particles=16, duration=-1, lifetime=7.0, lifetime_var=2.0,
+                          emission=2.2, angle=270, angle_var=25, speed=12, speed_var=5,
+                          posvar_x=260, posvar_y=40, grav_x=3, grav_y=-2, accel_tan=0,
+                          accel_tan_var=10, start_size=2.6, start_size_var=1.0, end_size=2.0,
+                          end_size_var=0.6, start_spin=0, start_spin_var=180,
+                          start_r=0.10, start_g=0.04, start_b=0.04, start_a=0.85,
+                          end_r=0.06, end_g=0.02, end_b=0.02, end_a=0,
+                          fade_in=0.8, fade_out=1.5, mode=0, mode2=0, additive=0,
+                          texture=TEX["circle"])
+    for x in range(150, 2701, 520):
+        sc.particles(x + rng.uniform(-40, 40), 900, ash, B2, -19)
+    # bubbles popping on the lava surface
+    bub = particle_string(max_particles=12, duration=-1, lifetime=0.55, lifetime_var=0.2,
+                          emission=9, angle=90, angle_var=10, speed=7, speed_var=4,
+                          posvar_x=70, posvar_y=1, grav_x=0, grav_y=0, start_size=2.4,
+                          start_size_var=1.0, end_size=6.0, end_size_var=1.5,
+                          start_r=1, start_g=0.78, start_b=0.38, start_a=0.95,
+                          end_r=1, end_g=0.3, end_b=0.06, end_a=0, fade_in=0.05, fade_out=0.2,
+                          mode=0, mode2=0, additive=1, texture=TEX["circle"])
+    for x in range(-260, 3001, 230):
+        xx = x + rng.uniform(-50, 50)
+        sc.particles(xx, lava_y(xx) + 1, bub, B2, -11)
     # molten drip from the start platform's stalactite tip
     drip = particle_string(max_particles=6, duration=-1, lifetime=1.8, lifetime_var=0.3,
                            emission=1.2, angle=270, angle_var=0, speed=0, speed_var=2,
@@ -669,8 +784,7 @@ def particles(sc: Scene, saws, g_plat):
 def moving_platform(sc: Scene, g_plat):
     ch = sc.ch
     # the layout's group-1 outline square at (1405,495) is the platform
-    sc.gpoly([(1390, 480), (1420, 480), (1420, 510), (1390, 510)], ch("near_rock"), "b3",
-             (g_plat,))
+    block_face(sc, 1405, 495, random.Random(77), groups=(g_plat,), lit="top")
     sc.glow(1405, 495, 90, ch("plat_glow"), B2, -6, (g_plat,), "plat", kind="L")
     sc.glow(1405, 512, 40, ch("glow_hot"), B2, -5, (g_plat,), "plat", kind="S")
     sc.seg((1391, 481), (1419, 481), 2.0, ch("rim_hot"), B2, -4, (g_plat,), "plat")
@@ -703,12 +817,54 @@ def world_from_fg(s):
     return (s[0] + mx * C0[0] + (1 - mx) * CAM_OPEN[0], s[1] + my * C0[1] + (1 - my) * CAM_OPEN[1])
 
 
+# ------------------------------------------------------------ atmosphere
+# (x, y, size) - kept out of the player's corridor (y ~430-760 before x 1400; the
+# platform dip reaches y ~320 between x 1405 and 1700) and away from the threads
+NEAR_DEBRIS = [(40, 240, 20), (330, 300, 24), (470, 190, 18), (950, 270, 18), (1560, 150, 26),
+               (1530, 805, 22), (2000, 830, 20), (2330, 770, 28), (2380, 250, 22)]
+# mid-ground chunks: (camera x when on screen, screen offset x, y, size)
+MID_DEBRIS = [(300, -180, 120, 34), (700, 200, -110, 30), (1200, -150, 130, 38),
+              (1800, 230, -100, 32), (2300, -200, 125, 36)]
+
+
+def mid_world(cam_x, sx, sy, cam_y=650.0):
+    """World position of a mid-layer object that shows at screen offset (sx, sy)
+    when the camera centre is at (cam_x, cam_y)."""
+    mx, my = MID_M
+    return (sx + cam_x - mx * (cam_x - C0[0]), sy + cam_y - my * (cam_y - C0[1]))
+
+
+def atmosphere(sc: Scene, g_mid):
+    rng = random.Random(81)
+    loops = []
+    # lavafall pouring from the overhang's longest stalactite into the lava sea
+    lavafall(sc, (-108, 814), lava_y(-108) + 2, rng)
+    # floating obsidian chunks at gameplay depth, drifting up and down
+    for k, (x, y, s) in enumerate(NEAR_DEBRIS):
+        g = sc.group()
+        debris(sc, (x, y), s, rng, (g,), seed=500 + k)
+        loops += bob_loop(sc, g, rng.uniform(5, 8), rng.uniform(3.2, 4.6), start_x=6.0,
+                          phase=rng.uniform(0, 2.0))
+    # bigger, slower chunks in the mid-ground (move with the mid parallax too)
+    mid_pal = shades(sc, "mid", MID_SHADES)
+    for k, (cam_x, sx, sy, s) in enumerate(MID_DEBRIS):
+        g = sc.group()
+        debris(sc, mid_world(cam_x, sx, sy), s, rng, (g_mid, g), seed=600 + k, layer="b4", z=B3,
+               palette=mid_pal, rim_ch="mid_rim")
+        loops += bob_loop(sc, g, rng.uniform(8, 12), rng.uniform(4.5, 6.5), start_x=6.0,
+                          phase=rng.uniform(0, 3.0))
+    # soft out-of-focus embers in front of everything (depth of field)
+    for x in range(200, 2700, 600):
+        bokeh(sc, x + rng.uniform(-60, 60), 560 + rng.uniform(-40, 40), 300, 220)
+    return loops
+
+
 # -------------------------------------------------------------- sync
 BIG = [3.487, 7.426]                          # layout BG pulse, platform launch
 SMALL = [1.107, 1.589, 1.878, 2.359, 2.532, 2.935, 3.245, 4.122, 4.819, 5.103, 9.207]
 
 
-def sync(sc: Scene, wave_groups, g_core, g_web):
+def sync(sc: Scene, wave_groups, g_core, g_web, g_tips, g_bands, g_knot, g_knot_c, loops):
     ch = sc.ch
     # opening: core and web ignite while the camera rises
     a = sc._trig(1007, 5.0); a.set(TARGET, g_core); a.set(DURATION, 0); a.set(OPACITY, 0)
@@ -720,6 +876,8 @@ def sync(sc: Scene, wave_groups, g_core, g_web):
         o.set(TARGET, tgt); o.set(DURATION, d); o.set(OPACITY, 1)
         o.set(SPAWN_TRIG, 1); o.set(MULTI_TRIG, 1); o.add_groups(g_ign)
     sc.pulse(8.0, ch("glow_r"), (255, 70, 20), 0.4, 0.2, 1.2)
+    # the neural knot inside the core turns slowly for the whole intro
+    loops.append(rotate_loop(sc, g_knot, g_knot_c, 14.0, start_x=6.0))
 
     for t in SMALL:
         x = t_to_x(t)
@@ -727,6 +885,7 @@ def sync(sc: Scene, wave_groups, g_core, g_web):
         sc.pulse(x, ch("core_r"), (255, 64, 24), 0.02, 0.04, 0.32)
         sc.pulse(x, wave_groups[0], (255, 120, 44), 0.02, 0.03, 0.3, group=True)
         sc.pulse(t_to_x(t + 0.06), wave_groups[1], (220, 80, 30), 0.02, 0.03, 0.3, group=True)
+        sc.pulse(x, g_tips, (255, 250, 220), 0.02, 0.03, 0.25, group=True)
     for t in BIG:
         x = t_to_x(t)
         sc.pulse(x, ch("core_w"), (255, 255, 255), 0.02, 0.06, 0.5)
@@ -735,13 +894,19 @@ def sync(sc: Scene, wave_groups, g_core, g_web):
         sc.pulse(x, ch("glow_deep"), (220, 30, 14), 0.03, 0.05, 0.9)
         sc.pulse(x, ch("glow_r"), (255, 80, 24), 0.03, 0.05, 0.9)
         sc.pulse(x, ch("lava_top"), (255, 230, 170), 0.03, 0.05, 0.7)
+        sc.pulse(x, g_tips, (255, 255, 255), 0.02, 0.06, 0.45, group=True)
         for b, g in enumerate(wave_groups):
             sc.pulse(t_to_x(t + 0.07 * b), g, (255, 132, 48), 0.03, 0.05, 0.45, group=True)
+        # synapse wave: the dendrite cracks in the rock light up left to right
+        for b, g in enumerate(g_bands):
+            sc.pulse(t_to_x(t + 0.045 * b), g, (255, 232, 176), 0.02, 0.05, 0.4, group=True)
     # slow lava breathing between the beats
     t = 0.7
     while t < 9.2:
         sc.pulse(t_to_x(t), ch("glow_o"), (255, 120, 40), 0.55, 0.1, 0.65)
         t += 1.35
+    # the intro deco is off screen from here: stop every loop
+    stop_groups(sc, 3300.0, loops)
 
 
 def layout_colors_on(sc: Scene):
@@ -760,22 +925,25 @@ def build(sc: Scene, layout_objs):
     g_far, g_mid, g_fg, g_plat = sc.group(), sc.group(), sc.group(), sc.group()
     g_core, g_web = sc.group(), sc.group()
     wave_groups = [sc.group() for _ in range(6)]
+    g_knot, g_knot_c, g_tips = sc.group(), sc.group(), sc.group()
+    g_bands = [sc.group() for _ in range(8)]
 
-    far_layer(sc, g_far, g_core, g_web, wave_groups)
+    far_layer(sc, g_far, g_core, g_web, wave_groups, g_knot, g_knot_c)
     mid_layer(sc, g_mid)
     lava(sc)
-    structures(sc)
-    saws = hazards(sc, layout_objs)
+    structures(sc, g_bands)
+    saws = hazards(sc, layout_objs, g_tips)
     threads(sc)
     moving_platform(sc, g_plat)
     particles(sc, saws, g_plat)
+    loops = atmosphere(sc, g_mid)
     foreground(sc, g_fg)
 
     # parallax locks start on the first frame (camera still at its initial position C0)
     sc.lock_camera(3.0, g_far, *FAR_M)
     sc.lock_camera(3.0, g_mid, *MID_M)
     sc.lock_camera(3.0, g_fg, *FG_M)
-    sync(sc, wave_groups, g_core, g_web)
+    sync(sc, wave_groups, g_core, g_web, g_tips, g_bands, g_knot, g_knot_c, loops)
     layout_colors_on(sc)
     return dict(g_far=g_far, g_mid=g_mid, g_fg=g_fg, g_plat=g_plat, g_core=g_core,
-                g_web=g_web, waves=wave_groups)
+                g_web=g_web, waves=wave_groups, bands=g_bands, tips=g_tips)

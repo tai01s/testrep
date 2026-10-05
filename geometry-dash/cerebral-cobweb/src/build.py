@@ -113,7 +113,7 @@ def main(src=DEFAULT_IN, dst=DEFAULT_OUT):
     os.makedirs(os.path.dirname(dst), exist_ok=True)
     # distinct name so the import does not get confused with the original layout
     gmd.xml = gmd.xml.replace("<k>k2</k><s>Cerebral Cobweb</s>",
-                              "<k>k2</k><s>Cerebral Cobweb HELL v1</s>", 1)
+                              "<k>k2</k><s>Cerebral Cobweb HELL v2</s>", 1)
     gmd.write(dst, level, len(out_raw))
     back = gl.GmdFile(dst)
     h2, raw2 = gl.split_level(back.level)

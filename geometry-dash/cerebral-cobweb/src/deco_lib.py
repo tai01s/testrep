@@ -173,7 +173,9 @@ class Scene:
         ga = self._corner(a, groups)
         gb = self._corner(b, groups)
         gc = self._corner(c, groups)
-        tx, ty = self._trigger_xy(x_trig)
+        # gradient triggers stack in columns of 400 (x 4.0, 4.5, ...): all fire on
+        # the first frames and the column never grows absurdly tall
+        tx, ty = self._trigger_xy(x_trig + 0.5 * (self.grad_count // 400))
         o = Obj(2903, tx, ty)
         o.set(COLOR1, ch)
         o.set(COLOR2, ch)
