@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Anton;src:url(Anton.woff2)}
+@font-face{font-family:Cinzel;src:url(Cinzel.woff2);font-weight:400 900}
+html,body{margin:0;width:1080px;height:1080px;overflow:hidden;background:#0d0906}
+.stage{position:relative;width:1080px;height:1080px;overflow:hidden}
+.bg{position:absolute;inset:-40px;background:url(bg.png) center/cover;filter:blur(4px) brightness(.62) saturate(1.2) sepia(.12);transform:rotate(-4deg) scale(1.16)}
+.light{position:absolute;inset:0;background:radial-gradient(ellipse 60% 45% at 50% 50%,rgba(255,150,70,.22),rgba(0,0,0,0) 70%),radial-gradient(circle at 50% 50%,rgba(0,0,0,0) 38%,rgba(5,3,2,.9) 100%),linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(10,6,3,.55) 50%,rgba(0,0,0,0) 70%)}
+.grain{position:absolute;inset:0;opacity:.22;mix-blend-mode:overlay}
+.wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.top{display:flex;align-items:center;gap:26px;margin-bottom:6px}
+.top .t{font-family:Cinzel;font-weight:900;font-size:62px;letter-spacing:.32em;margin-right:-.32em;color:#e3c27f;
+  background:linear-gradient(180deg,#fbe6b0,#c8954a 70%,#9c6a2c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 3px 6px rgba(0,0,0,.8))}
+.rule{width:110px;height:3px;background:linear-gradient(90deg,rgba(214,170,100,0),#d6aa64)}
+.rule.r{transform:scaleX(-1)}
+.star{width:30px;height:30px}
+.main{display:flex;align-items:center;line-height:1}
+.main span{font-family:Anton;font-size:262px;letter-spacing:.01em;
+  background:linear-gradient(180deg,#fff7e6 0%,#f3e2c0 55%,#cfae7a 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 8px 0 rgba(0,0,0,.55)) drop-shadow(0 0 30px rgba(0,0,0,.7))}
+.coin{width:250px;height:250px;margin:0 2px;position:relative;top:4px;transform:rotate(-8deg);
+  filter:drop-shadow(0 14px 18px rgba(0,0,0,.85)) drop-shadow(0 0 22px rgba(255,140,60,.35))}
+.bottom{display:flex;align-items:center;gap:18px;margin-top:14px}
+.bottom .rule{width:200px}
+</style></head><body><div class="stage">
+<div class="bg"></div><div class="light"></div>
+<svg class="grain" width="1080" height="1080"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+<div class="wrap">
+  <div class="top">
+    <div class="rule"></div>
+    <svg class="star" viewBox="-12 -12 24 24"><path d="M0,-11 L3.2,-3.6 11,-3.4 4.9,1.6 7,9.4 0,5 -7,9.4 -4.9,1.6 -11,-3.4 -3.2,-3.6Z" fill="#d6aa64"/></svg>
+    <div class="t">IT'S JUST</div>
+    <svg class="star" viewBox="-12 -12 24 24"><path d="M0,-11 L3.2,-3.6 11,-3.4 4.9,1.6 7,9.4 0,5 -7,9.4 -4.9,1.6 -11,-3.4 -3.2,-3.6Z" fill="#d6aa64"/></svg>
+    <div class="rule r"></div>
+  </div>
+  <div class="main"><span>HIST</span><img class="coin" src="coin.png"><span>RY</span></div>
+  <div class="bottom"><div class="rule"></div><svg class="star" viewBox="-12 -12 24 24" style="width:22px;height:22px"><path d="M0,-11 L3.2,-3.6 11,-3.4 4.9,1.6 7,9.4 0,5 -7,9.4 -4.9,1.6 -11,-3.4 -3.2,-3.6Z" fill="#d6aa64"/></svg><div class="rule r"></div></div>
+</div></div></body></html>
