@@ -1,0 +1,948 @@
+[
+ {
+  "id": "hook1",
+  "text": "How do you get a navy past an unbreakable chain?",
+  "duration": 3.65,
+  "words": [
+   {
+    "text": "How",
+    "start": 0,
+    "end": 0.48
+   },
+   {
+    "text": "do",
+    "start": 0.48,
+    "end": 0.6
+   },
+   {
+    "text": "you",
+    "start": 0.6,
+    "end": 0.72
+   },
+   {
+    "text": "get",
+    "start": 0.72,
+    "end": 0.84
+   },
+   {
+    "text": "a",
+    "start": 0.84,
+    "end": 0.96
+   },
+   {
+    "text": "navy",
+    "start": 0.96,
+    "end": 1.28
+   },
+   {
+    "text": "past",
+    "start": 1.28,
+    "end": 1.84
+   },
+   {
+    "text": "an",
+    "start": 1.84,
+    "end": 2.02
+   },
+   {
+    "text": "unbreakable",
+    "start": 2.02,
+    "end": 2.6
+   },
+   {
+    "text": "chain?",
+    "start": 2.6,
+    "end": 3
+   }
+  ]
+ },
+ {
+  "id": "hook2",
+  "text": "You take it for a walk.",
+  "duration": 1.975,
+  "words": [
+   {
+    "text": "You",
+    "start": 0,
+    "end": 0.44
+   },
+   {
+    "text": "take",
+    "start": 0.44,
+    "end": 0.68
+   },
+   {
+    "text": "it",
+    "start": 0.68,
+    "end": 0.86
+   },
+   {
+    "text": "for",
+    "start": 0.86,
+    "end": 1.06
+   },
+   {
+    "text": "a",
+    "start": 1.06,
+    "end": 1.26
+   },
+   {
+    "text": "walk.",
+    "start": 1.26,
+    "end": 1.48
+   }
+  ]
+ },
+ {
+  "id": "setup",
+  "text": "Constantinople, spring of 1453. 21-year-old Sultan Mehmed II has the city surrounded.",
+  "duration": 8.475,
+  "words": [
+   {
+    "text": "Constantinople,",
+    "start": 0,
+    "end": 0.88
+   },
+   {
+    "text": "spring",
+    "start": 1.56,
+    "end": 1.92
+   },
+   {
+    "text": "of",
+    "start": 1.92,
+    "end": 2.18
+   },
+   {
+    "text": "1453.",
+    "start": 2.18,
+    "end": 3.22
+   },
+   {
+    "text": "21-year-old",
+    "start": 3.98,
+    "end": 4.86
+   },
+   {
+    "text": "Sultan",
+    "start": 4.86,
+    "end": 5.34
+   },
+   {
+    "text": "Mehmed",
+    "start": 5.34,
+    "end": 5.88
+   },
+   {
+    "text": "II",
+    "start": 5.88,
+    "end": 6.28
+   },
+   {
+    "text": "has",
+    "start": 6.28,
+    "end": 6.82
+   },
+   {
+    "text": "the",
+    "start": 6.82,
+    "end": 7.02
+   },
+   {
+    "text": "city",
+    "start": 7.02,
+    "end": 7.24
+   },
+   {
+    "text": "surrounded.",
+    "start": 7.24,
+    "end": 7.8
+   }
+  ]
+ },
+ {
+  "id": "chain",
+  "text": "But its harbor, the Golden Horn, is sealed by a massive iron chain, floating right across the entrance.",
+  "duration": 7,
+  "words": [
+   {
+    "text": "But",
+    "start": 0,
+    "end": 0.42
+   },
+   {
+    "text": "its",
+    "start": 0.42,
+    "end": 0.58
+   },
+   {
+    "text": "harbor,",
+    "start": 0.58,
+    "end": 0.9
+   },
+   {
+    "text": "the",
+    "start": 1.18,
+    "end": 1.26
+   },
+   {
+    "text": "Golden",
+    "start": 1.26,
+    "end": 1.54
+   },
+   {
+    "text": "Horn,",
+    "start": 1.54,
+    "end": 1.9
+   },
+   {
+    "text": "is",
+    "start": 2.28,
+    "end": 2.54
+   },
+   {
+    "text": "sealed",
+    "start": 2.54,
+    "end": 2.82
+   },
+   {
+    "text": "by",
+    "start": 2.82,
+    "end": 3.08
+   },
+   {
+    "text": "a",
+    "start": 3.08,
+    "end": 3.26
+   },
+   {
+    "text": "massive",
+    "start": 3.26,
+    "end": 3.62
+   },
+   {
+    "text": "iron",
+    "start": 3.62,
+    "end": 3.98
+   },
+   {
+    "text": "chain,",
+    "start": 3.98,
+    "end": 4.46
+   },
+   {
+    "text": "floating",
+    "start": 4.46,
+    "end": 5.06
+   },
+   {
+    "text": "right",
+    "start": 5.06,
+    "end": 5.46
+   },
+   {
+    "text": "across",
+    "start": 5.46,
+    "end": 5.76
+   },
+   {
+    "text": "the",
+    "start": 5.76,
+    "end": 5.98
+   },
+   {
+    "text": "entrance.",
+    "start": 5.98,
+    "end": 6.36
+   }
+  ]
+ },
+ {
+  "id": "fail",
+  "text": "His fleet attacks it. And fails.",
+  "duration": 2.55,
+  "words": [
+   {
+    "text": "His",
+    "start": 0,
+    "end": 0.46
+   },
+   {
+    "text": "fleet",
+    "start": 0.46,
+    "end": 0.66
+   },
+   {
+    "text": "attacks",
+    "start": 0.66,
+    "end": 0.98
+   },
+   {
+    "text": "it.",
+    "start": 0.98,
+    "end": 1.24
+   },
+   {
+    "text": "And",
+    "start": 1.24,
+    "end": 1.54
+   },
+   {
+    "text": "fails.",
+    "start": 1.54,
+    "end": 1.9
+   }
+  ]
+ },
+ {
+  "id": "twist",
+  "text": "So Mehmed does something nobody sees coming.",
+  "duration": 3.175,
+  "words": [
+   {
+    "text": "So",
+    "start": 0,
+    "end": 0.46
+   },
+   {
+    "text": "Mehmed",
+    "start": 0.46,
+    "end": 0.8
+   },
+   {
+    "text": "does",
+    "start": 0.8,
+    "end": 1.06
+   },
+   {
+    "text": "something",
+    "start": 1.06,
+    "end": 1.34
+   },
+   {
+    "text": "nobody",
+    "start": 1.34,
+    "end": 1.7
+   },
+   {
+    "text": "sees",
+    "start": 1.7,
+    "end": 2.12
+   },
+   {
+    "text": "coming.",
+    "start": 2.12,
+    "end": 2.62
+   }
+  ]
+ },
+ {
+  "id": "road",
+  "text": "His men lay a road of wooden planks over the hills behind Galata, and grease it with animal fat.",
+  "duration": 6.525,
+  "words": [
+   {
+    "text": "His",
+    "start": 0,
+    "end": 0.44
+   },
+   {
+    "text": "men",
+    "start": 0.44,
+    "end": 0.74
+   },
+   {
+    "text": "lay",
+    "start": 0.74,
+    "end": 1.04
+   },
+   {
+    "text": "a",
+    "start": 1.04,
+    "end": 1.22
+   },
+   {
+    "text": "road",
+    "start": 1.22,
+    "end": 1.46
+   },
+   {
+    "text": "of",
+    "start": 1.46,
+    "end": 1.62
+   },
+   {
+    "text": "wooden",
+    "start": 1.62,
+    "end": 1.9
+   },
+   {
+    "text": "planks",
+    "start": 1.9,
+    "end": 2.3
+   },
+   {
+    "text": "over",
+    "start": 2.3,
+    "end": 2.48
+   },
+   {
+    "text": "the",
+    "start": 2.48,
+    "end": 2.62
+   },
+   {
+    "text": "hills",
+    "start": 2.62,
+    "end": 2.86
+   },
+   {
+    "text": "behind",
+    "start": 2.86,
+    "end": 3.32
+   },
+   {
+    "text": "Galata,",
+    "start": 3.32,
+    "end": 3.76
+   },
+   {
+    "text": "and",
+    "start": 3.76,
+    "end": 4.44
+   },
+   {
+    "text": "grease",
+    "start": 4.44,
+    "end": 4.72
+   },
+   {
+    "text": "it",
+    "start": 4.72,
+    "end": 4.98
+   },
+   {
+    "text": "with",
+    "start": 4.98,
+    "end": 5.18
+   },
+   {
+    "text": "animal",
+    "start": 5.18,
+    "end": 5.58
+   },
+   {
+    "text": "fat.",
+    "start": 5.58,
+    "end": 5.96
+   }
+  ]
+ },
+ {
+  "id": "drag",
+  "text": "Then they drag the ships out of the sea. Around 70 of them. Up and over the hill.",
+  "duration": 5.45,
+  "words": [
+   {
+    "text": "Then",
+    "start": 0,
+    "end": 0.46
+   },
+   {
+    "text": "they",
+    "start": 0.46,
+    "end": 0.62
+   },
+   {
+    "text": "drag",
+    "start": 0.62,
+    "end": 0.9
+   },
+   {
+    "text": "the",
+    "start": 0.9,
+    "end": 1.1
+   },
+   {
+    "text": "ships",
+    "start": 1.1,
+    "end": 1.3
+   },
+   {
+    "text": "out",
+    "start": 1.3,
+    "end": 1.48
+   },
+   {
+    "text": "of",
+    "start": 1.48,
+    "end": 1.6
+   },
+   {
+    "text": "the",
+    "start": 1.6,
+    "end": 1.66
+   },
+   {
+    "text": "sea.",
+    "start": 1.66,
+    "end": 1.94
+   },
+   {
+    "text": "Around",
+    "start": 2.6,
+    "end": 2.78
+   },
+   {
+    "text": "70",
+    "start": 2.78,
+    "end": 3.1
+   },
+   {
+    "text": "of",
+    "start": 3.1,
+    "end": 3.38
+   },
+   {
+    "text": "them.",
+    "start": 3.38,
+    "end": 3.64
+   },
+   {
+    "text": "Up",
+    "start": 3.9,
+    "end": 4.12
+   },
+   {
+    "text": "and",
+    "start": 4.12,
+    "end": 4.32
+   },
+   {
+    "text": "over",
+    "start": 4.32,
+    "end": 4.48
+   },
+   {
+    "text": "the",
+    "start": 4.48,
+    "end": 4.62
+   },
+   {
+    "text": "hill.",
+    "start": 4.62,
+    "end": 4.86
+   }
+  ]
+ },
+ {
+  "id": "oars",
+  "text": "Chroniclers say the sails were raised, and the rowers pulled their oars through the air.",
+  "duration": 5.225,
+  "words": [
+   {
+    "text": "Chroniclers",
+    "start": 0,
+    "end": 0.8
+   },
+   {
+    "text": "say",
+    "start": 0.8,
+    "end": 1.04
+   },
+   {
+    "text": "the",
+    "start": 1.04,
+    "end": 1.2
+   },
+   {
+    "text": "sails",
+    "start": 1.2,
+    "end": 1.44
+   },
+   {
+    "text": "were",
+    "start": 1.44,
+    "end": 1.7
+   },
+   {
+    "text": "raised,",
+    "start": 1.7,
+    "end": 2.08
+   },
+   {
+    "text": "and",
+    "start": 2.08,
+    "end": 2.64
+   },
+   {
+    "text": "the",
+    "start": 2.64,
+    "end": 2.76
+   },
+   {
+    "text": "rowers",
+    "start": 2.76,
+    "end": 3.14
+   },
+   {
+    "text": "pulled",
+    "start": 3.14,
+    "end": 3.4
+   },
+   {
+    "text": "their",
+    "start": 3.4,
+    "end": 3.62
+   },
+   {
+    "text": "oars",
+    "start": 3.62,
+    "end": 3.96
+   },
+   {
+    "text": "through",
+    "start": 3.96,
+    "end": 4.24
+   },
+   {
+    "text": "the",
+    "start": 4.24,
+    "end": 4.38
+   },
+   {
+    "text": "air.",
+    "start": 4.38,
+    "end": 4.66
+   }
+  ]
+ },
+ {
+  "id": "reveal",
+  "text": "On April 22, the defenders wake up to an enemy fleet inside their own harbor. Behind the chain.",
+  "duration": 7.35,
+  "words": [
+   {
+    "text": "On",
+    "start": 0,
+    "end": 0.46
+   },
+   {
+    "text": "April",
+    "start": 0.46,
+    "end": 0.74
+   },
+   {
+    "text": "22,",
+    "start": 0.74,
+    "end": 1.88
+   },
+   {
+    "text": "the",
+    "start": 2,
+    "end": 2.06
+   },
+   {
+    "text": "defenders",
+    "start": 2.06,
+    "end": 2.42
+   },
+   {
+    "text": "wake",
+    "start": 2.42,
+    "end": 2.84
+   },
+   {
+    "text": "up",
+    "start": 2.84,
+    "end": 3.02
+   },
+   {
+    "text": "to",
+    "start": 3.02,
+    "end": 3.18
+   },
+   {
+    "text": "an",
+    "start": 3.18,
+    "end": 3.34
+   },
+   {
+    "text": "enemy",
+    "start": 3.34,
+    "end": 3.62
+   },
+   {
+    "text": "fleet",
+    "start": 3.62,
+    "end": 3.96
+   },
+   {
+    "text": "inside",
+    "start": 3.96,
+    "end": 4.4
+   },
+   {
+    "text": "their",
+    "start": 4.4,
+    "end": 4.64
+   },
+   {
+    "text": "own",
+    "start": 4.64,
+    "end": 4.86
+   },
+   {
+    "text": "harbor.",
+    "start": 4.86,
+    "end": 5.2
+   },
+   {
+    "text": "Behind",
+    "start": 5.88,
+    "end": 6.2
+   },
+   {
+    "text": "the",
+    "start": 6.2,
+    "end": 6.4
+   },
+   {
+    "text": "chain.",
+    "start": 6.4,
+    "end": 6.74
+   }
+  ]
+ },
+ {
+  "id": "stretch",
+  "text": "Now the sea walls need guarding too, and a city already short on soldiers is stretched even thinner.",
+  "duration": 6.65,
+  "words": [
+   {
+    "text": "Now",
+    "start": 0,
+    "end": 0.56
+   },
+   {
+    "text": "the",
+    "start": 0.56,
+    "end": 0.78
+   },
+   {
+    "text": "sea",
+    "start": 0.78,
+    "end": 0.78
+   },
+   {
+    "text": "walls",
+    "start": 0.78,
+    "end": 1.2
+   },
+   {
+    "text": "need",
+    "start": 1.2,
+    "end": 1.5
+   },
+   {
+    "text": "guarding",
+    "start": 1.5,
+    "end": 1.8
+   },
+   {
+    "text": "too,",
+    "start": 1.8,
+    "end": 2.22
+   },
+   {
+    "text": "and",
+    "start": 2.66,
+    "end": 2.78
+   },
+   {
+    "text": "a",
+    "start": 2.78,
+    "end": 2.92
+   },
+   {
+    "text": "city",
+    "start": 2.92,
+    "end": 3.14
+   },
+   {
+    "text": "already",
+    "start": 3.14,
+    "end": 3.48
+   },
+   {
+    "text": "short",
+    "start": 3.48,
+    "end": 3.84
+   },
+   {
+    "text": "on",
+    "start": 3.84,
+    "end": 4.08
+   },
+   {
+    "text": "soldiers",
+    "start": 4.08,
+    "end": 4.48
+   },
+   {
+    "text": "is",
+    "start": 4.48,
+    "end": 4.96
+   },
+   {
+    "text": "stretched",
+    "start": 4.96,
+    "end": 5.24
+   },
+   {
+    "text": "even",
+    "start": 5.24,
+    "end": 5.68
+   },
+   {
+    "text": "thinner.",
+    "start": 5.68,
+    "end": 6.04
+   }
+  ]
+ },
+ {
+  "id": "fall",
+  "text": "Five weeks later, on May 29, Constantinople falls. And a 1,000-year empire is gone.",
+  "duration": 7.275,
+  "words": [
+   {
+    "text": "Five",
+    "start": 0,
+    "end": 0.6
+   },
+   {
+    "text": "weeks",
+    "start": 0.6,
+    "end": 0.8
+   },
+   {
+    "text": "later,",
+    "start": 0.8,
+    "end": 1.24
+   },
+   {
+    "text": "on",
+    "start": 1.44,
+    "end": 1.52
+   },
+   {
+    "text": "May",
+    "start": 1.52,
+    "end": 1.7
+   },
+   {
+    "text": "29,",
+    "start": 1.7,
+    "end": 2.28
+   },
+   {
+    "text": "Constantinople",
+    "start": 2.8,
+    "end": 3.26
+   },
+   {
+    "text": "falls.",
+    "start": 3.26,
+    "end": 3.9
+   },
+   {
+    "text": "And",
+    "start": 4.48,
+    "end": 4.72
+   },
+   {
+    "text": "a",
+    "start": 4.72,
+    "end": 4.84
+   },
+   {
+    "text": "1,000-year",
+    "start": 5.28,
+    "end": 5.52
+   },
+   {
+    "text": "empire",
+    "start": 5.52,
+    "end": 5.96
+   },
+   {
+    "text": "is",
+    "start": 5.96,
+    "end": 6.28
+   },
+   {
+    "text": "gone.",
+    "start": 6.28,
+    "end": 6.62
+   }
+  ]
+ },
+ {
+  "id": "outro",
+  "text": "All because one sultan took his navy for a walk.",
+  "duration": 3.45,
+  "words": [
+   {
+    "text": "All",
+    "start": 0,
+    "end": 0.48
+   },
+   {
+    "text": "because",
+    "start": 0.48,
+    "end": 0.72
+   },
+   {
+    "text": "one",
+    "start": 0.72,
+    "end": 1.06
+   },
+   {
+    "text": "sultan",
+    "start": 1.06,
+    "end": 1.46
+   },
+   {
+    "text": "took",
+    "start": 1.46,
+    "end": 1.72
+   },
+   {
+    "text": "his",
+    "start": 1.72,
+    "end": 1.9
+   },
+   {
+    "text": "navy",
+    "start": 1.9,
+    "end": 2.16
+   },
+   {
+    "text": "for",
+    "start": 2.16,
+    "end": 2.5
+   },
+   {
+    "text": "a",
+    "start": 2.5,
+    "end": 2.64
+   },
+   {
+    "text": "walk.",
+    "start": 2.64,
+    "end": 2.9
+   }
+  ]
+ }
+]

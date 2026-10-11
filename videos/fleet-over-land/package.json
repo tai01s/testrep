@@ -1,0 +1,28 @@
+{
+  "name": "fleet-over-land",
+  "private": true,
+  "description": "TikTok video: The fleet that sailed over land (1453), built with Remotion",
+  "scripts": {
+    "studio": "remotion studio",
+    "voice:fish": "node scripts/voice-fish.mjs",
+    "voice:local": "node scripts/voice-local.mjs",
+    "align": "node scripts/align.mjs",
+    "render": "remotion render FleetOverLand out/fleet-over-land.mp4",
+    "master": "ffmpeg -y -i out/fleet-over-land.mp4 -c:v libx264 -preset slow -crf 21 -pix_fmt yuv420p -movflags +faststart -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k fleet-over-land.mp4",
+    "sfx": "python3 scripts/make-sfx.py"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/media-utils": "4.0.534",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.534"
+  },
+  "devDependencies": {
+    "@huggingface/transformers": "3.7.6",
+    "@types/react": "19.1.8",
+    "kokoro-js": "1.2.1",
+    "typescript": "5.8.3",
+    "wavefile": "11.0.0"
+  }
+}

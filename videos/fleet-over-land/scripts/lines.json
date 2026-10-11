@@ -1,0 +1,60 @@
+[
+ {
+  "id": "hook1",
+  "text": "How do you get a navy past an unbreakable chain?"
+ },
+ {
+  "id": "hook2",
+  "text": "You take it for a walk."
+ },
+ {
+  "id": "setup",
+  "text": "Constantinople, spring of fourteen fifty-three. Twenty-one-year-old Sultan Mehmed the Second has the city surrounded.",
+  "kokoro": "Constantinople, spring of fourteen fifty-three. Twenty-one-year-old Sultan Meh-med the Second has the city surrounded.",
+  "caption": "Constantinople, spring of 1453. 21-year-old Sultan Mehmed II has the city surrounded."
+ },
+ {
+  "id": "chain",
+  "text": "But its harbor, the Golden Horn, is sealed by a massive iron chain, floating right across the entrance."
+ },
+ {
+  "id": "fail",
+  "text": "His fleet attacks it. And fails."
+ },
+ {
+  "id": "twist",
+  "text": "So Mehmed does something nobody sees coming.",
+  "kokoro": "So Meh-med does something nobody sees coming."
+ },
+ {
+  "id": "road",
+  "text": "His men lay a road of wooden planks over the hills behind Galata, and grease it with animal fat."
+ },
+ {
+  "id": "drag",
+  "text": "Then they drag the ships out of the sea. Around seventy of them. Up and over the hill.",
+  "caption": "Then they drag the ships out of the sea. Around 70 of them. Up and over the hill."
+ },
+ {
+  "id": "oars",
+  "text": "Chroniclers say the sails were raised, and the rowers pulled their oars through the air."
+ },
+ {
+  "id": "reveal",
+  "text": "On April twenty-second, the defenders wake up to an enemy fleet inside their own harbor. Behind the chain.",
+  "caption": "On April 22, the defenders wake up to an enemy fleet inside their own harbor. Behind the chain."
+ },
+ {
+  "id": "stretch",
+  "text": "Now the sea walls need guarding too, and a city already short on soldiers is stretched even thinner."
+ },
+ {
+  "id": "fall",
+  "text": "Five weeks later, on May twenty-ninth, Constantinople falls. And a thousand-year empire is gone.",
+  "caption": "Five weeks later, on May 29, Constantinople falls. And a 1,000-year empire is gone."
+ },
+ {
+  "id": "outro",
+  "text": "All because one sultan took his navy for a walk."
+ }
+]

@@ -1,0 +1,4 @@
+node_modules/
+out/
+# music is downloaded locally, see README
+public/music/
