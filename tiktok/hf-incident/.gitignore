@@ -1,0 +1,6 @@
+node_modules/
+build/
+out/
+# Font is user-supplied; its license isn't known, so it stays out of git.
+fonts/*.ttf
+fonts/*.otf

@@ -1,0 +1,13 @@
+{
+  "name": "hf-incident-tiktok",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "tts": "NODE_USE_ENV_PROXY=1 node tts.mjs",
+    "render": "node render.mjs",
+    "preview": "node render.mjs --preview"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  }
+}
