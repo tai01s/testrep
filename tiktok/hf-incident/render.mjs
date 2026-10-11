@@ -85,8 +85,12 @@ function captions(ctx, scene, t) {
   const pop = 1 + 0.04 * (1 - eo(clamp((t - ch[0].s + 0.08) / 0.18)));
   ctx.save();
   ctx.translate(CX, y); ctx.scale(pop, pop); ctx.translate(-CX, -y);
+  // exactly one lit word: the latest one that has started and isn't long over
+  let cur = -1;
+  ch.forEach((w, i) => { if (t >= w.s - 0.04) cur = i; });
+  if (cur >= 0 && t > ch[cur].e + 0.25) cur = -1;
   ch.forEach((w, i) => {
-    const active = t >= w.s - 0.04 && t < w.e + 0.04;
+    const active = i === cur;
     const said = t >= w.s - 0.04;
     text(ctx, w.w, x, y, size, C.fg, { align: 'left', alpha: a * (said ? 1 : 0.32) });
     if (active) {
