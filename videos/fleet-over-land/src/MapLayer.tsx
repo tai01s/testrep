@@ -5,7 +5,7 @@ import {
   LAND_WALLS, MARMARA_WALLS, Pt, ROUTE, ROUTE_LAND, along, inPolygon, partialPath, smooth,
 } from "./geo";
 import { BYZANTINE, OTTOMAN, Ship } from "./Ship";
-import { E, S, W } from "./timeline";
+import { useTimeline } from "./timeline";
 import { Cam } from "./camera";
 import { fonts } from "./fonts";
 
@@ -77,6 +77,8 @@ const DRAG_GAP = 0.3; // seconds between ships entering the route
 const DRAG_TRAVEL = 3.6; // seconds to cross the hill
 
 export const MapLayer: React.FC<{ t: number; cam: Cam }> = ({ t, cam }) => {
+  const { S, E, W, str } = useTimeline();
+  const m = str.map;
   const blocks = useCityBlocks();
   const vb = `${cam.cx - cam.w / 2} ${cam.cy - (cam.w * 16) / 9 / 2} ${cam.w} ${(cam.w * 16) / 9}`;
   const px = cam.w / 1080; // world units per screen pixel
@@ -305,20 +307,20 @@ export const MapLayer: React.FC<{ t: number; cam: Cam }> = ({ t, cam }) => {
       <rect x={-2000} y={-2000} width={5000} height={5000} fill="#ff9d4d" opacity={0.18 * dawn} style={{ mixBlendMode: "multiply" }} />
 
       {/* labels */}
-      <Label x={450} y={590} text="CONSTANTINOPLE" px={50} cam={cam} opacity={1 - fallen * 0.6} />
-      <Label x={450} y={590 + 48 * px} text="ISTANBUL" px={34} cam={cam} color="#9b1d14" opacity={ramp(t, W("fall", "falls") + 0.8, W("fall", "falls") + 1.6)} />
-      <Label x={432} y={452} text="GOLDEN HORN" px={30} cam={cam} rotate={31} color="#e9f7ff" halo="rgba(10,40,60,0.9)" opacity={t < S("setup") + 0.5 ? 0 : 0.85 + 0.15 * hornGlow} />
-      <Label x={655} y={430} text="GALATA" px={30} cam={cam} opacity={ramp(t, S("setup") + 1, S("setup") + 2)} />
-      <Label x={850} y={-40} text="BOSPHORUS" px={30} cam={cam} rotate={-84} color="#e9f7ff" halo="rgba(10,40,60,0.9)" />
-      <Label x={470} y={1010} text="SEA OF MARMARA" px={32} cam={cam} color="#e9f7ff" halo="rgba(10,40,60,0.9)" />
-      <Label x={1010} y={640} text="ASIA" px={30} cam={cam} />
-      <Label x={95} y={250} text="OTTOMAN ARMY" px={28} cam={cam} color="#9b1d14" opacity={armyIn * (1 - fallen)} />
-      <Label x={CHAIN_A[0] + 46 * px * 2.2} y={CHAIN_A[1] + 30} text="THE CHAIN" px={26} cam={cam} color="#2b1d10"
+      <Label x={450} y={590} text={m.constantinople} px={50} cam={cam} opacity={1 - fallen * 0.6} />
+      <Label x={450} y={590 + 48 * px} text={m.istanbul} px={34} cam={cam} color="#9b1d14" opacity={ramp(t, W("fall", "falls") + 0.8, W("fall", "falls") + 1.6)} />
+      <Label x={432} y={452} text={m.goldenHorn} px={30} cam={cam} rotate={31} color="#e9f7ff" halo="rgba(10,40,60,0.9)" opacity={t < S("setup") + 0.5 ? 0 : 0.85 + 0.15 * hornGlow} />
+      <Label x={655} y={430} text={m.galata} px={30} cam={cam} opacity={ramp(t, S("setup") + 1, S("setup") + 2)} />
+      <Label x={850} y={-40} text={m.bosphorus} px={30} cam={cam} rotate={-84} color="#e9f7ff" halo="rgba(10,40,60,0.9)" />
+      <Label x={470} y={1010} text={m.marmara} px={32} cam={cam} color="#e9f7ff" halo="rgba(10,40,60,0.9)" />
+      <Label x={1010} y={640} text={m.asia} px={30} cam={cam} />
+      <Label x={95} y={250} text={m.army} px={28} cam={cam} color="#9b1d14" opacity={armyIn * (1 - fallen)} />
+      <Label x={CHAIN_A[0] + 46 * px * 2.2} y={CHAIN_A[1] + 30} text={m.chain} px={26} cam={cam} color="#2b1d10"
         opacity={ramp(t, W("chain", "chain"), W("chain", "chain") + 0.4) * (1 - ramp(t, S("twist"), S("twist") + 0.5)) + ramp(t, W("reveal", "Behind"), W("reveal", "Behind") + 0.3)} />
-      <Label x={640} y={300} text="THE HILLS" px={28} cam={cam} opacity={ramp(t, W("road", "hills"), W("road", "hills") + 0.4) * (1 - ramp(t, S("drag") + 1, S("drag") + 2))} />
-      <Label x={330} y={448} text="NEW FRONT" px={30} cam={cam} rotate={31} color="#c0281e" opacity={seaFront} />
-      <Label x={830} y={250} text="OTTOMAN FLEET" px={24} cam={cam} color="#9b1d14" halo="rgba(245,232,200,0.9)" opacity={ramp(t, S("setup") + 2, S("setup") + 3) * (1 - ramp(t, S("chain"), S("chain") + 0.6))} />
-      <Label x={440} y={392} text="OTTOMAN SHIPS!" px={30} cam={cam} color="#c0281e" opacity={ramp(t, W("reveal", "enemy"), W("reveal", "enemy") + 0.3) * (1 - ramp(t, S("stretch"), S("stretch") + 0.5))} />
+      <Label x={640} y={300} text={m.hills} px={28} cam={cam} opacity={ramp(t, W("road", "hills"), W("road", "hills") + 0.4) * (1 - ramp(t, S("drag") + 1, S("drag") + 2))} />
+      <Label x={330} y={448} text={m.newFront} px={30} cam={cam} rotate={31} color="#c0281e" opacity={seaFront} />
+      <Label x={830} y={250} text={m.fleet} px={24} cam={cam} color="#9b1d14" halo="rgba(245,232,200,0.9)" opacity={ramp(t, S("setup") + 2, S("setup") + 3) * (1 - ramp(t, S("chain"), S("chain") + 0.6))} />
+      <Label x={440} y={392} text={m.ships} px={30} cam={cam} color="#c0281e" opacity={ramp(t, W("reveal", "enemy"), W("reveal", "enemy") + 0.3) * (1 - ramp(t, S("stretch"), S("stretch") + 0.5))} />
     </svg>
   );
 };

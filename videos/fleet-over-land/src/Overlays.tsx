@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Easing, interpolate } from "remotion";
-import { E, S, TOTAL, W } from "./timeline";
+import { useTimeline } from "./timeline";
 import { fonts } from "./fonts";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
@@ -38,6 +38,7 @@ const Crescent: React.FC<{ size: number }> = ({ size }) => (
 );
 
 export const Overlays: React.FC<{ t: number }> = ({ t }) => {
+  const { S, E, W, TOTAL, str } = useTimeline();
   const els: React.ReactNode[] = [];
 
   // darkening + spotlight for the twist ("something nobody sees coming")
@@ -60,7 +61,7 @@ export const Overlays: React.FC<{ t: number }> = ({ t }) => {
     els.push(
       <div key="chip" style={{ position: "absolute", top: 210, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: chip }}>
         <div style={{ fontFamily: fonts.caption, fontWeight: 800, fontSize: 34, color: "#f6e7c1", background: "rgba(20,14,8,0.72)", padding: "12px 28px", borderRadius: 40, letterSpacing: 4, border: "3px solid rgba(216,178,74,0.8)" }}>
-          SIEGE OF CONSTANTINOPLE · 1453
+          {str.chip}
         </div>
       </div>
     );
@@ -70,8 +71,8 @@ export const Overlays: React.FC<{ t: number }> = ({ t }) => {
   if (hook > 0)
     els.push(
       <div key="hook" style={{ position: "absolute", top: 300, left: 40, right: 40, opacity: hook, transform: `scale(${popIn(t, 0.15)})` }}>
-        <Title size={92} color="#ffe08a">THE UNBREAKABLE</Title>
-        <Title size={150}>CHAIN</Title>
+        <Title size={92} color="#ffe08a">{str.hookSmall}</Title>
+        <Title size={150}>{str.hookBig}</Title>
       </div>
     );
 
@@ -82,8 +83,8 @@ export const Overlays: React.FC<{ t: number }> = ({ t }) => {
       <div style={{ display: "flex", alignItems: "center", gap: 30 }}>
         <Crescent size={130} />
         <div>
-          <div style={{ fontFamily: fonts.title, fontWeight: 900, fontSize: 62, color: "#fff", letterSpacing: 3 }}>MEHMED II</div>
-          <div style={{ fontFamily: fonts.caption, fontWeight: 800, fontSize: 40, color: "#f3d27a" }}>Ottoman Sultan · age 21</div>
+          <div style={{ fontFamily: fonts.title, fontWeight: 900, fontSize: 62, color: "#fff", letterSpacing: 3 }}>{str.mehmed}</div>
+          <div style={{ fontFamily: fonts.caption, fontWeight: 800, fontSize: 40, color: "#f3d27a" }}>{str.mehmedSub}</div>
         </div>
       </div>
     </Card>
@@ -97,7 +98,7 @@ export const Overlays: React.FC<{ t: number }> = ({ t }) => {
     els.push(
       <div key="stamp" style={{ position: "absolute", top: 420, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: stamp }}>
         <div style={{ transform: `rotate(-12deg) scale(${sc})`, border: "14px solid #e0261b", borderRadius: 24, padding: "10px 40px", background: "rgba(255,255,255,0.08)" }}>
-          <div style={{ fontFamily: fonts.caption, fontWeight: 900, fontSize: 150, color: "#e0261b", letterSpacing: 10, textShadow: "0 4px 0 rgba(0,0,0,0.35)" }}>FAILED</div>
+          <div style={{ fontFamily: fonts.caption, fontWeight: 900, fontSize: Math.min(150, 900 / str.failed.length), color: "#e0261b", letterSpacing: 10, textShadow: "0 4px 0 rgba(0,0,0,0.35)" }}>{str.failed}</div>
         </div>
       </div>
     );
@@ -111,7 +112,7 @@ export const Overlays: React.FC<{ t: number }> = ({ t }) => {
     els.push(
       <div key="cnt" style={{ position: "absolute", top: 320, left: 0, right: 0, textAlign: "center", opacity: cnt, transform: `scale(${popIn(t, S("drag") + 0.4) * beat})` }}>
         <Title size={190} color="#ffe08a">×{n}</Title>
-        <div style={{ fontFamily: fonts.caption, fontWeight: 900, fontSize: 52, color: "#fff", letterSpacing: 8, textShadow: "0 4px 12px rgba(0,0,0,0.8)" }}>SHIPS OVER THE HILL</div>
+        <div style={{ fontFamily: fonts.caption, fontWeight: 900, fontSize: 52, color: "#fff", letterSpacing: 8, textShadow: "0 4px 12px rgba(0,0,0,0.8)" }}>{str.ships}</div>
       </div>
     );
   }
@@ -120,8 +121,8 @@ export const Overlays: React.FC<{ t: number }> = ({ t }) => {
   const apr = win(t, S("reveal") + 0.05, W("reveal", "enemy"), 0.25);
   els.push(
     <Card key="apr" top={330} opacity={apr} scale={popIn(t, S("reveal") + 0.05)}>
-      <Title size={80} color="#ffe08a">22 APRIL 1453</Title>
-      <div style={{ fontFamily: fonts.caption, fontWeight: 800, fontSize: 38, color: "#f6e7c1", textAlign: "center", marginTop: 8 }}>sunrise over the Golden Horn</div>
+      <Title size={80} color="#ffe08a">{str.april}</Title>
+      <div style={{ fontFamily: fonts.caption, fontWeight: 800, fontSize: 38, color: "#f6e7c1", textAlign: "center", marginTop: 8 }}>{str.aprilSub}</div>
     </Card>
   );
 
@@ -129,8 +130,8 @@ export const Overlays: React.FC<{ t: number }> = ({ t }) => {
   const def = win(t, S("stretch") + 0.4, E("stretch") + 0.1, 0.3);
   els.push(
     <Card key="def" top={330} opacity={def} scale={popIn(t, S("stretch") + 0.4)} bg="rgba(16,26,60,0.86)" border="#8fa7ff">
-      <div style={{ fontFamily: fonts.caption, fontWeight: 900, fontSize: 64, color: "#fff", textAlign: "center" }}>≈ 7,000 DEFENDERS</div>
-      <div style={{ fontFamily: fonts.caption, fontWeight: 800, fontSize: 38, color: "#c9d4ff", textAlign: "center", marginTop: 6 }}>now spread across two fronts</div>
+      <div style={{ fontFamily: fonts.caption, fontWeight: 900, fontSize: 64, color: "#fff", textAlign: "center" }}>{str.defenders}</div>
+      <div style={{ fontFamily: fonts.caption, fontWeight: 800, fontSize: 38, color: "#c9d4ff", textAlign: "center", marginTop: 6 }}>{str.defendersSub}</div>
     </Card>
   );
 
@@ -139,9 +140,9 @@ export const Overlays: React.FC<{ t: number }> = ({ t }) => {
   const may = win(t, S("fall") + 0.1, E("fall") + 0.2, 0.3);
   els.push(
     <Card key="may" top={330} opacity={may} scale={popIn(t, S("fall") + 0.1)} bg="rgba(90,10,8,0.9)">
-      <Title size={84} color="#fff">29 MAY 1453</Title>
+      <Title size={84} color="#fff">{str.may}</Title>
       <div style={{ fontFamily: fonts.caption, fontWeight: 800, fontSize: 40, color: "#ffd9a8", textAlign: "center", marginTop: 8, opacity: ramp(t, W("fall", "empire") - 0.6, W("fall", "empire")) }}>
-        Byzantine Empire · 330 – 1453
+        {str.empire}
       </div>
     </Card>
   );
@@ -154,11 +155,11 @@ export const Overlays: React.FC<{ t: number }> = ({ t }) => {
   if (end > 0)
     els.push(
       <div key="end" style={{ position: "absolute", top: 330, left: 40, right: 40, opacity: end, transform: `scale(${popIn(t, endT)})` }}>
-        <Title size={70} color="#ffe08a">THE FLEET THAT</Title>
-        <Title size={104}>SAILED</Title>
-        <Title size={104}>OVER LAND</Title>
+        <Title size={70} color="#ffe08a">{str.end[0]}</Title>
+        <Title size={104}>{str.end[1]}</Title>
+        <Title size={104}>{str.end[2]}</Title>
         <div style={{ textAlign: "center", marginTop: 26, fontFamily: fonts.caption, fontWeight: 800, fontSize: 40, color: "#f6e7c1", opacity: ramp(t, endT + 0.8, endT + 1.2) }}>
-          Constantinople · 22 April 1453
+          {str.endSub}
         </div>
       </div>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 import { Html5Audio, Sequence, interpolate, staticFile } from "remotion";
-import { FPS, L, S, TOTAL, W, lines } from "./timeline";
+import { FPS, Timeline, useTimeline } from "./timeline";
 
 // "Тусовщица" (ftshsm). The track's first drop lands at 30.95 s and the second,
 // after a quiet break, at 107.75 s. Drop 1 hits as the ships are dragged; drop 2
@@ -12,7 +12,7 @@ const DROP_2 = 107.75;
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
 /** Duck the music under the narration. */
-const duck = (t: number) => {
+const duck = (t: number, lines: Timeline["lines"]) => {
   let d = 99;
   for (const l of lines) {
     if (t >= l.start - 0.1 && t <= l.end) return 0;
@@ -21,17 +21,19 @@ const duck = (t: number) => {
   return Math.min(1, d / 0.35);
 };
 
-const musicLevel = (t: number) => {
+const musicLevel = (t: number, { lines, L, TOTAL }: Timeline) => {
   const under = 0.16, open = 0.42;
   const fadeOut = interpolate(t, [TOTAL - 1.2, TOTAL], [1, 0], clamp);
   // the end card lets the track breathe
   const tail = t > L.outro.end ? 0.55 : open;
-  return (under + (tail - under) * duck(t)) * fadeOut;
+  return (under + (tail - under) * duck(t, lines)) * fadeOut;
 };
 
 const sfx = (name: string, at: number, volume = 1) => ({ name, at, volume });
 
 export const Soundtrack: React.FC = () => {
+  const tl = useTimeline();
+  const { L, S, W, lang, lines } = tl;
   // segment A: from the start of the track, aligned so drop 1 meets "Then they drag"
   const dragAt = L.drag.start;
   const aFrom = Math.max(0, dragAt - DROP_1); // video time where segment A starts
@@ -68,7 +70,7 @@ export const Soundtrack: React.FC = () => {
             const t = aFrom + f / FPS;
             const fadeIn = interpolate(t, [aFrom, aFrom + 1.5], [0.3, 1], clamp);
             const out = interpolate(t, [bFrom, bFrom + xfade], [1, 0], clamp);
-            return musicLevel(t) * fadeIn * out;
+            return musicLevel(t, tl) * fadeIn * out;
           }}
         />
       </Sequence>
@@ -78,13 +80,13 @@ export const Soundtrack: React.FC = () => {
           trimBefore={Math.round(bTrim * FPS)}
           volume={(f) => {
             const t = bFrom + f / FPS;
-            return musicLevel(t) * interpolate(t, [bFrom, bFrom + xfade], [0, 1], clamp);
+            return musicLevel(t, tl) * interpolate(t, [bFrom, bFrom + xfade], [0, 1], clamp);
           }}
         />
       </Sequence>
       {lines.map((l) => (
         <Sequence key={l.id} from={Math.round(l.start * FPS)}>
-          <Html5Audio src={staticFile(`vo/${l.id}.wav`)} volume={1} />
+          <Html5Audio src={staticFile(`vo/${lang}/${l.id}.wav`)} volume={1} />
         </Sequence>
       ))}
       {effects.map((e, i) => (

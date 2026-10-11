@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Easing, interpolate } from "remotion";
-import { lines, Word } from "./timeline";
+import { Line, Word, useTimeline } from "./timeline";
 import { fonts } from "./fonts";
 
 type Chunk = { words: (Word & { abs: number })[]; start: number; end: number };
 
 // TikTok-style captions: 1-3 words at a time, the spoken word highlighted
-const chunks: Chunk[] = (() => {
+const buildChunks = (lines: Line[]): Chunk[] => {
   const out: Chunk[] = [];
   for (const line of lines) {
     let cur: Chunk["words"] = [];
@@ -27,7 +27,7 @@ const chunks: Chunk[] = (() => {
     c.end = next && next.start - c.end < 0.6 ? next.start : c.end + 0.35;
   });
   return out;
-})();
+};
 
 const OUTLINE = (() => {
   const r = 7;
@@ -38,6 +38,8 @@ const OUTLINE = (() => {
 })();
 
 export const Captions: React.FC<{ t: number }> = ({ t }) => {
+  const { lines } = useTimeline();
+  const chunks = useMemo(() => buildChunks(lines), [lines]);
   const chunk = chunks.find((c) => t >= c.start && t < c.end);
   if (!chunk) return null;
   const inT = t - chunk.start;

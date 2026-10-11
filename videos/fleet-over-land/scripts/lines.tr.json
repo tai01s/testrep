@@ -1,0 +1,15 @@
+[
+ {"id": "hook1", "text": "Kırılmaz bir zincirin ötesine bir donanmayı nasıl geçirirsin?"},
+ {"id": "hook2", "text": "Gemileri karadan yürütürsün."},
+ {"id": "setup", "text": "Konstantinopolis, bin dört yüz elli üç baharı. Yirmi bir yaşındaki Sultan İkinci Mehmed şehri kuşatmış durumda.", "caption": "Konstantinopolis, 1453 baharı. 21 yaşındaki Sultan II. Mehmed şehri kuşatmış durumda."},
+ {"id": "chain", "text": "Ama limanı, yani Haliç, girişine boydan boya gerilmiş devasa bir demir zincirle kapatılmış."},
+ {"id": "fail", "text": "Donanması zincire saldırır. Ve başaramaz."},
+ {"id": "twist", "text": "Bunun üzerine Mehmed, kimsenin beklemediği bir şey yapar."},
+ {"id": "road", "text": "Adamları Galata'nın arkasındaki tepelerin üzerine tahtalardan bir yol döşer ve onu hayvan yağıyla yağlar."},
+ {"id": "drag", "text": "Sonra gemileri denizden çekip çıkarırlar. Yetmiş kadar gemi. Tepenin üzerinden aşırılır.", "caption": "Sonra gemileri denizden çekip çıkarırlar. 70 kadar gemi. Tepenin üzerinden aşırılır."},
+ {"id": "oars", "text": "Kroniklere göre yelkenler açılmış, kürekçiler küreklerini havada çekiyormuş."},
+ {"id": "reveal", "text": "Yirmi iki Nisan sabahı savunucular uyandığında, kendi limanlarının içinde bir düşman donanması görür. Zincirin arkasında.", "caption": "22 Nisan sabahı savunucular uyandığında, kendi limanlarının içinde bir düşman donanması görür. Zincirin arkasında."},
+ {"id": "stretch", "text": "Artık deniz surlarını da korumaları gerekir ve zaten askeri az olan şehrin savunması iyice zayıflar."},
+ {"id": "fall", "text": "Beş hafta sonra, yirmi dokuz Mayıs'ta, Konstantinopolis fethedilir. Bin yıllık bir imparatorluk sona erer.", "caption": "Beş hafta sonra, 29 Mayıs'ta, Konstantinopolis fethedilir. Bin yıllık bir imparatorluk sona erer."},
+ {"id": "outro", "text": "Hepsi, bir sultan gemilerini karadan yürüttüğü için."}
+]

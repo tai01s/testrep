@@ -9,7 +9,10 @@
     "align": "node scripts/align.mjs",
     "render": "remotion render FleetOverLand out/fleet-over-land.mp4",
     "master": "ffmpeg -y -i out/fleet-over-land.mp4 -c:v libx264 -preset slow -crf 21 -pix_fmt yuv420p -movflags +faststart -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k fleet-over-land.mp4",
-    "sfx": "python3 scripts/make-sfx.py"
+    "sfx": "python3 scripts/make-sfx.py",
+    "voice:retake": "node scripts/retake.mjs",
+    "render:tr": "remotion render FleetOverLand-TR out/fleet-over-land-tr.mp4",
+    "master:tr": "ffmpeg -y -i out/fleet-over-land-tr.mp4 -c:v libx264 -preset slow -crf 21 -pix_fmt yuv420p -movflags +faststart -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k fleet-over-land-tr.mp4"
   },
   "dependencies": {
     "@remotion/cli": "4.0.534",

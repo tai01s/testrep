@@ -1,5 +1,5 @@
 import { Easing, interpolate } from "remotion";
-import { E, S } from "./timeline";
+import { Timeline } from "./timeline";
 
 export type Cam = { cx: number; cy: number; w: number };
 type Key = { t: number } & Cam;
@@ -7,7 +7,7 @@ type Key = { t: number } & Cam;
 const k = (t: number, cx: number, cy: number, w: number): Key => ({ t, cx, cy, w });
 
 // Camera path over the map. Two keys at nearly the same time make a cut.
-const keys = (): Key[] => [
+const keys = ({ S, E }: Timeline): Key[] => [
   k(0, 712, 600, 300),
   k(E("hook1"), 700, 594, 240),
   // hook2 is a full-screen side view; cut the map to the wide shot under it
@@ -34,10 +34,11 @@ const keys = (): Key[] => [
   k(E("fall") + 2, 450, 640, 760),
 ];
 
-let cache: Key[] | null = null;
+const cache = new Map<Timeline, Key[]>();
 
-export const cameraAt = (t: number): Cam => {
-  const ks = (cache ??= keys());
+export const cameraAt = (t: number, tl: Timeline): Cam => {
+  if (!cache.has(tl)) cache.set(tl, keys(tl));
+  const ks = cache.get(tl)!;
   if (t <= ks[0].t) return ks[0];
   for (let i = 1; i < ks.length; i++) {
     const a = ks[i - 1], b = ks[i];

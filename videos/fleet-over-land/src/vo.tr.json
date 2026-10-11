@@ -1,0 +1,743 @@
+[
+ {
+  "id": "hook1",
+  "text": "Kırılmaz bir zincirin ötesine bir donanmayı nasıl geçirirsin?",
+  "duration": 3.5294331065759637,
+  "words": [
+   {
+    "text": "Kırılmaz",
+    "start": 0,
+    "end": 0.58
+   },
+   {
+    "text": "bir",
+    "start": 0.58,
+    "end": 0.78
+   },
+   {
+    "text": "zincirin",
+    "start": 0.78,
+    "end": 1.3
+   },
+   {
+    "text": "ötesine",
+    "start": 1.3,
+    "end": 1.72
+   },
+   {
+    "text": "bir",
+    "start": 1.72,
+    "end": 1.86
+   },
+   {
+    "text": "donanmayı",
+    "start": 1.86,
+    "end": 2.34
+   },
+   {
+    "text": "nasıl",
+    "start": 2.34,
+    "end": 2.54
+   },
+   {
+    "text": "geçirirsin?",
+    "start": 2.54,
+    "end": 3.28
+   }
+  ]
+ },
+ {
+  "id": "hook2",
+  "text": "Gemileri karadan yürütürsün.",
+  "duration": 1.811156462585034,
+  "words": [
+   {
+    "text": "Gemileri",
+    "start": 0,
+    "end": 0.42
+   },
+   {
+    "text": "karadan",
+    "start": 0.42,
+    "end": 0.9
+   },
+   {
+    "text": "yürütürsün.",
+    "start": 0.9,
+    "end": 1.66
+   }
+  ]
+ },
+ {
+  "id": "setup",
+  "text": "Konstantinopolis, 1453 baharı. 21 yaşındaki Sultan II. Mehmed şehri kuşatmış durumda.",
+  "duration": 8.359183673469389,
+  "words": [
+   {
+    "text": "Konstantinopolis,",
+    "start": 0,
+    "end": 1.34
+   },
+   {
+    "text": "1453",
+    "start": 1.34,
+    "end": 2.86
+   },
+   {
+    "text": "baharı.",
+    "start": 2.86,
+    "end": 3.46
+   },
+   {
+    "text": "21",
+    "start": 3.46,
+    "end": 4.48
+   },
+   {
+    "text": "yaşındaki",
+    "start": 4.48,
+    "end": 5.2
+   },
+   {
+    "text": "Sultan",
+    "start": 5.2,
+    "end": 5.78
+   },
+   {
+    "text": "II.",
+    "start": 5.78,
+    "end": 6.16
+   },
+   {
+    "text": "Mehmed",
+    "start": 6.36,
+    "end": 6.76
+   },
+   {
+    "text": "şehri",
+    "start": 6.76,
+    "end": 7.1
+   },
+   {
+    "text": "kuşatmış",
+    "start": 7.1,
+    "end": 7.68
+   },
+   {
+    "text": "durumda.",
+    "start": 7.68,
+    "end": 8.16
+   }
+  ]
+ },
+ {
+  "id": "chain",
+  "text": "Ama limanı, yani Haliç, girişine boydan boya gerilmiş devasa bir demir zincirle kapatılmış.",
+  "duration": 6.640907029478458,
+  "words": [
+   {
+    "text": "Ama",
+    "start": 0,
+    "end": 0.26
+   },
+   {
+    "text": "limanı,",
+    "start": 0.26,
+    "end": 0.8
+   },
+   {
+    "text": "yani",
+    "start": 0.8,
+    "end": 1.7
+   },
+   {
+    "text": "Haliç,",
+    "start": 1.7,
+    "end": 2.36
+   },
+   {
+    "text": "girişine",
+    "start": 2.36,
+    "end": 3.08
+   },
+   {
+    "text": "boydan",
+    "start": 3.08,
+    "end": 3.42
+   },
+   {
+    "text": "boya",
+    "start": 3.42,
+    "end": 3.74
+   },
+   {
+    "text": "gerilmiş",
+    "start": 3.74,
+    "end": 4.3
+   },
+   {
+    "text": "devasa",
+    "start": 4.3,
+    "end": 4.74
+   },
+   {
+    "text": "bir",
+    "start": 4.74,
+    "end": 4.96
+   },
+   {
+    "text": "demir",
+    "start": 4.96,
+    "end": 5.32
+   },
+   {
+    "text": "zincirle",
+    "start": 5.32,
+    "end": 5.78
+   },
+   {
+    "text": "kapatılmış.",
+    "start": 5.78,
+    "end": 6.38
+   }
+  ]
+ },
+ {
+  "id": "fail",
+  "text": "Donanması zincire saldırır. Ve başaramaz.",
+  "duration": 3.2043537414965986,
+  "words": [
+   {
+    "text": "Donanması",
+    "start": 0,
+    "end": 0.56
+   },
+   {
+    "text": "zincire",
+    "start": 0.56,
+    "end": 1.06
+   },
+   {
+    "text": "saldırır.",
+    "start": 1.06,
+    "end": 1.7
+   },
+   {
+    "text": "Ve",
+    "start": 1.7,
+    "end": 2.32
+   },
+   {
+    "text": "başaramaz.",
+    "start": 2.32,
+    "end": 3.02
+   }
+  ]
+ },
+ {
+  "id": "twist",
+  "text": "Bunun üzerine Mehmed, kimsenin beklemediği bir şey yapar.",
+  "duration": 3.8545124716553287,
+  "words": [
+   {
+    "text": "Bunun",
+    "start": 0,
+    "end": 0.18
+   },
+   {
+    "text": "üzerine",
+    "start": 0.18,
+    "end": 0.68
+   },
+   {
+    "text": "Mehmed,",
+    "start": 0.68,
+    "end": 1.3
+   },
+   {
+    "text": "kimsenin",
+    "start": 1.3,
+    "end": 2.12
+   },
+   {
+    "text": "beklemediği",
+    "start": 2.12,
+    "end": 2.82
+   },
+   {
+    "text": "bir",
+    "start": 2.82,
+    "end": 2.96
+   },
+   {
+    "text": "şey",
+    "start": 2.96,
+    "end": 3.14
+   },
+   {
+    "text": "yapar.",
+    "start": 3.14,
+    "end": 3.66
+   }
+  ]
+ },
+ {
+  "id": "road",
+  "text": "Adamları Galata'nın arkasındaki tepelerin üzerine tahtalardan bir yol döşer ve onu hayvan yağıyla yağlar.",
+  "duration": 7.012426303854875,
+  "words": [
+   {
+    "text": "Adamları",
+    "start": 0,
+    "end": 0.5
+   },
+   {
+    "text": "Galata'nın",
+    "start": 0.84,
+    "end": 0.96
+   },
+   {
+    "text": "arkasındaki",
+    "start": 0.96,
+    "end": 1.66
+   },
+   {
+    "text": "tepelerin",
+    "start": 1.66,
+    "end": 2.2
+   },
+   {
+    "text": "üzerine",
+    "start": 2.2,
+    "end": 2.64
+   },
+   {
+    "text": "tahtalardan",
+    "start": 2.64,
+    "end": 3.42
+   },
+   {
+    "text": "bir",
+    "start": 3.42,
+    "end": 3.7
+   },
+   {
+    "text": "yol",
+    "start": 3.7,
+    "end": 4.12
+   },
+   {
+    "text": "döşer",
+    "start": 4.12,
+    "end": 4.62
+   },
+   {
+    "text": "ve",
+    "start": 4.62,
+    "end": 4.84
+   },
+   {
+    "text": "onu",
+    "start": 4.84,
+    "end": 5.5
+   },
+   {
+    "text": "hayvan",
+    "start": 5.5,
+    "end": 5.96
+   },
+   {
+    "text": "yağıyla",
+    "start": 5.96,
+    "end": 6.38
+   },
+   {
+    "text": "yağlar.",
+    "start": 6.38,
+    "end": 6.86
+   }
+  ]
+ },
+ {
+  "id": "drag",
+  "text": "Sonra gemileri denizden çekip çıkarırlar. 70 kadar gemi. Tepenin üzerinden aşırılır.",
+  "duration": 6.501587301587302,
+  "words": [
+   {
+    "text": "Sonra",
+    "start": 0,
+    "end": 0.3
+   },
+   {
+    "text": "gemileri",
+    "start": 0.3,
+    "end": 0.82
+   },
+   {
+    "text": "denizden",
+    "start": 0.82,
+    "end": 1.34
+   },
+   {
+    "text": "çekip",
+    "start": 1.34,
+    "end": 1.72
+   },
+   {
+    "text": "çıkarırlar.",
+    "start": 1.72,
+    "end": 2.48
+   },
+   {
+    "text": "70",
+    "start": 2.7,
+    "end": 3.5
+   },
+   {
+    "text": "kadar",
+    "start": 3.5,
+    "end": 3.78
+   },
+   {
+    "text": "gemi.",
+    "start": 3.78,
+    "end": 4.24
+   },
+   {
+    "text": "Tepenin",
+    "start": 4.46,
+    "end": 5.18
+   },
+   {
+    "text": "üzerinden",
+    "start": 5.18,
+    "end": 5.72
+   },
+   {
+    "text": "aşırılır.",
+    "start": 5.72,
+    "end": 6.36
+   }
+  ]
+ },
+ {
+  "id": "oars",
+  "text": "Kroniklere göre yelkenler açılmış, kürekçiler küreklerini havada çekiyormuş.",
+  "duration": 5.108390022675737,
+  "words": [
+   {
+    "text": "Kroniklere",
+    "start": 0,
+    "end": 0.6
+   },
+   {
+    "text": "göre",
+    "start": 0.6,
+    "end": 0.86
+   },
+   {
+    "text": "yelkenler",
+    "start": 0.86,
+    "end": 1.48
+   },
+   {
+    "text": "açılmış,",
+    "start": 1.48,
+    "end": 2.04
+   },
+   {
+    "text": "kürekçiler",
+    "start": 2.34,
+    "end": 3.16
+   },
+   {
+    "text": "küreklerini",
+    "start": 3.16,
+    "end": 3.86
+   },
+   {
+    "text": "havada",
+    "start": 3.86,
+    "end": 4.24
+   },
+   {
+    "text": "çekiyormuş.",
+    "start": 4.24,
+    "end": 4.86
+   }
+  ]
+ },
+ {
+  "id": "reveal",
+  "text": "22 Nisan sabahı savunucular uyandığında, kendi limanlarının içinde bir düşman donanması görür. Zincirin arkasında.",
+  "duration": 9.566621315192744,
+  "words": [
+   {
+    "text": "22",
+    "start": 0,
+    "end": 0.4
+   },
+   {
+    "text": "Nisan",
+    "start": 0.4,
+    "end": 1.08
+   },
+   {
+    "text": "sabahı",
+    "start": 1.08,
+    "end": 1.72
+   },
+   {
+    "text": "savunucular",
+    "start": 1.72,
+    "end": 2.48
+   },
+   {
+    "text": "uyandığında,",
+    "start": 2.48,
+    "end": 3.2
+   },
+   {
+    "text": "kendi",
+    "start": 3.2,
+    "end": 4.1
+   },
+   {
+    "text": "limanlarının",
+    "start": 4.1,
+    "end": 4.86
+   },
+   {
+    "text": "içinde",
+    "start": 4.86,
+    "end": 5.2
+   },
+   {
+    "text": "bir",
+    "start": 5.2,
+    "end": 5.54
+   },
+   {
+    "text": "düşman",
+    "start": 5.54,
+    "end": 6.16
+   },
+   {
+    "text": "donanması",
+    "start": 6.16,
+    "end": 6.72
+   },
+   {
+    "text": "görür.",
+    "start": 6.72,
+    "end": 7.18
+   },
+   {
+    "text": "Zincirin",
+    "start": 7.62,
+    "end": 8.72
+   },
+   {
+    "text": "arkasında.",
+    "start": 8.72,
+    "end": 9.34
+   }
+  ]
+ },
+ {
+  "id": "stretch",
+  "text": "Artık deniz surlarını da korumaları gerekir ve zaten askeri az olan şehrin savunması iyice zayıflar.",
+  "duration": 6.780226757369615,
+  "words": [
+   {
+    "text": "Artık",
+    "start": 0,
+    "end": 0.36
+   },
+   {
+    "text": "deniz",
+    "start": 0.36,
+    "end": 0.64
+   },
+   {
+    "text": "surlarını",
+    "start": 0.64,
+    "end": 1.12
+   },
+   {
+    "text": "da",
+    "start": 1.12,
+    "end": 1.26
+   },
+   {
+    "text": "korumaları",
+    "start": 1.26,
+    "end": 1.8
+   },
+   {
+    "text": "gerekir",
+    "start": 1.8,
+    "end": 2.42
+   },
+   {
+    "text": "ve",
+    "start": 2.42,
+    "end": 3.08
+   },
+   {
+    "text": "zaten",
+    "start": 3.08,
+    "end": 3.46
+   },
+   {
+    "text": "askeri",
+    "start": 3.46,
+    "end": 4
+   },
+   {
+    "text": "az",
+    "start": 4,
+    "end": 4.22
+   },
+   {
+    "text": "olan",
+    "start": 4.22,
+    "end": 4.48
+   },
+   {
+    "text": "şehrin",
+    "start": 4.48,
+    "end": 4.9
+   },
+   {
+    "text": "savunması",
+    "start": 4.9,
+    "end": 5.54
+   },
+   {
+    "text": "iyice",
+    "start": 5.54,
+    "end": 6
+   },
+   {
+    "text": "zayıflar.",
+    "start": 6,
+    "end": 6.6
+   }
+  ]
+ },
+ {
+  "id": "fall",
+  "text": "Beş hafta sonra, 29 Mayıs'ta, Konstantinopolis fethedilir. Bin yıllık bir imparatorluk sona erer.",
+  "duration": 8.266303854875284,
+  "words": [
+   {
+    "text": "Beş",
+    "start": 0,
+    "end": 0.28
+   },
+   {
+    "text": "hafta",
+    "start": 0.28,
+    "end": 0.64
+   },
+   {
+    "text": "sonra,",
+    "start": 0.64,
+    "end": 0.98
+   },
+   {
+    "text": "29",
+    "start": 0.98,
+    "end": 1.78
+   },
+   {
+    "text": "Mayıs'ta,",
+    "start": 1.78,
+    "end": 2.9
+   },
+   {
+    "text": "Konstantinopolis",
+    "start": 2.9,
+    "end": 4.38
+   },
+   {
+    "text": "fethedilir.",
+    "start": 4.38,
+    "end": 5.06
+   },
+   {
+    "text": "Bin",
+    "start": 5.8,
+    "end": 5.98
+   },
+   {
+    "text": "yıllık",
+    "start": 5.98,
+    "end": 6.4
+   },
+   {
+    "text": "bir",
+    "start": 6.4,
+    "end": 6.6
+   },
+   {
+    "text": "imparatorluk",
+    "start": 6.6,
+    "end": 7.38
+   },
+   {
+    "text": "sona",
+    "start": 7.38,
+    "end": 7.7
+   },
+   {
+    "text": "erer.",
+    "start": 7.7,
+    "end": 8.1
+   }
+  ]
+ },
+ {
+  "id": "outro",
+  "text": "Hepsi, bir sultan gemilerini karadan yürüttüğü için.",
+  "duration": 3.8545124716553287,
+  "words": [
+   {
+    "text": "Hepsi,",
+    "start": 0,
+    "end": 0.46
+   },
+   {
+    "text": "bir",
+    "start": 0.46,
+    "end": 1.22
+   },
+   {
+    "text": "sultan",
+    "start": 1.22,
+    "end": 1.64
+   },
+   {
+    "text": "gemilerini",
+    "start": 1.64,
+    "end": 2.22
+   },
+   {
+    "text": "karadan",
+    "start": 2.22,
+    "end": 2.64
+   },
+   {
+    "text": "yürüttüğü",
+    "start": 2.64,
+    "end": 3.26
+   },
+   {
+    "text": "için.",
+    "start": 3.26,
+    "end": 3.64
+   }
+  ]
+ }
+]

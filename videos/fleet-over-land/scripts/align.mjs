@@ -5,10 +5,13 @@ import fs from "node:fs";
 import { pipeline } from "@huggingface/transformers";
 import wavefile from "wavefile";
 
-const lines = JSON.parse(fs.readFileSync(new URL("./lines.json", import.meta.url)));
-const asr = await pipeline("automatic-speech-recognition", "onnx-community/whisper-small.en_timestamped", { dtype: "fp32" });
+const lang = process.env.LANG_CODE ?? "en";
+const lines = JSON.parse(fs.readFileSync(new URL(`./lines.${lang}.json`, import.meta.url)));
+const model = lang === "en" ? "onnx-community/whisper-small.en_timestamped" : "onnx-community/whisper-large-v3-turbo_timestamped";
+const asr = await pipeline("automatic-speech-recognition", model, { dtype: "fp32" });
+const asrOpts = lang === "en" ? {} : { language: { tr: "turkish" }[lang] ?? lang, task: "transcribe" };
 
-const norm = (w) => w.toLowerCase().replace(/[^a-z0-9]/g, "");
+const norm = (w) => w.toLocaleLowerCase(lang).normalize("NFD").replace(/[^\p{L}\p{N}]/gu, "");
 // split on hyphens so "21-year-old" lines up however Whisper tokenises it
 const splitHyphens = (w) => w.split("-").map((p, i, a) => p + (i < a.length - 1 ? "-" : ""));
 const scriptWords = (text) => text.split(/\s+/).flatMap(splitHyphens).map((p) => ({ text: p, key: norm(p) }));
@@ -47,8 +50,8 @@ function align(sw, hw) {
 
 const out = [];
 for (const line of lines) {
-  const { audio, duration } = readWav(`public/vo/${line.id}.wav`);
-  const r = await asr(audio, { return_timestamps: "word" });
+  const { audio, duration } = readWav(`public/vo/${lang}/${line.id}.wav`);
+  const r = await asr(audio, { return_timestamps: "word", ...asrOpts });
   const hw = r.chunks.flatMap((c) => {
     const start = c.timestamp[0], end = c.timestamp[1] ?? duration;
     const parts = splitHyphens(c.text.trim());
@@ -80,4 +83,4 @@ for (const line of lines) {
   out.push({ id: line.id, text: line.caption ?? line.text, duration, words: joined.map((w) => ({ ...w, start: +w.start.toFixed(3), end: +w.end.toFixed(3) })) });
   console.log(line.id, duration.toFixed(2), r.text.trim());
 }
-fs.writeFileSync("src/vo.json", JSON.stringify(out, null, 1));
+fs.writeFileSync(`src/vo.${lang}.json`, JSON.stringify(out, null, 1));
