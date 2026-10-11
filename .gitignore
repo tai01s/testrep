@@ -10,3 +10,7 @@ firetv/local.properties
 *.apk
 .idea/
 node_modules/
+
+# GD level reference clones
+gd-level/ref/
+__pycache__/
