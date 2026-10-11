@@ -1,0 +1,36 @@
+{
+ "bpm": 128.0,
+ "beat": 0.46875,
+ "bar": 1.875,
+ "first_note_T": 1.875,
+ "cut_segments": [
+  {
+   "cut_T": 0.0,
+   "orig_from": 1.0385,
+   "orig_to": 55.4135
+  },
+  {
+   "cut_T": 54.37498866213152,
+   "orig_from": 130.4135,
+   "orig_to": 175.4135
+  },
+  {
+   "cut_T": 99.37498866213151,
+   "orig_from": 235.4135,
+   "orig_to": 241.5
+  }
+ ],
+ "duration": 105.46149659863946,
+ "sections_cut_bar": {
+  "lead-in": 0,
+  "intro": 1,
+  "A (beat in)": 5,
+  "B": 13,
+  "A'": 21,
+  "break": 29,
+  "pre-drop fill": 36,
+  "C (drop)": 37,
+  "D": 45,
+  "outro hit": 53
+ }
+}

@@ -11,5 +11,15 @@ requester's OK.
 | `research/aredl-600.md` | What "top 600" means in difficulty terms |
 | `tools/` | Python tools that decode and analyse GDShare `.gmd` exports |
 
-**Status:** Phase 0 (research + rulebook) is done. Phase 1 (song analysis) is blocked on the questions in
-`RULEBOOK.md` §9.
+**Status:** song mapped and cut; test v1 (first ~11 s) built. Waiting on your test report.
+
+## Build (Phase 3/4 test)
+
+| Path | What it is |
+|---|---|
+| `plan/SONG_MAP.md` | Tempo (exactly 128 BPM), sections, and the 105.46 s cut |
+| `plan/LEVEL_PLAN.md` | Part-by-part plan + the click map for part 0 |
+| `build/` | Generator: `gdlevel.py` (.gmd writer), `art.py` (shapes/triggers), `timeline.py` (song time ↔ x), `part0_gameplay.py`, `scene_part0.py`, `physics_check.py` (sanity check only), `preview.py`, `make_test.py` |
+| `out/` | `castle_of_shadows_test_v1.gmd`, preview image, `TEST_v1.md` (how to test) |
+
+To rebuild: `cd build && python3 make_test.py`. The physics check is `python3 part0_gameplay.py`.
