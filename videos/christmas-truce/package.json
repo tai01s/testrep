@@ -1,0 +1,28 @@
+{
+  "name": "christmas-truce",
+  "private": true,
+  "description": "TikTok video: The Christmas Truce (1914), built with Remotion",
+  "scripts": {
+    "studio": "remotion studio",
+    "voice:fish": "node scripts/voice-fish.mjs",
+    "voice:retake": "node scripts/retake.mjs",
+    "align": "node scripts/align.mjs",
+    "sfx": "python3 scripts/make-sfx.py",
+    "render": "remotion render ChristmasTruce out/christmas-truce.mp4",
+    "master": "ffmpeg -y -i out/christmas-truce.mp4 -c:v libx264 -preset slow -crf 21 -pix_fmt yuv420p -movflags +faststart -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k christmas-truce.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/media-utils": "4.0.534",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.534"
+  },
+  "devDependencies": {
+    "@huggingface/transformers": "3.7.6",
+    "@types/react": "19.1.8",
+    "kokoro-js": "1.2.1",
+    "typescript": "5.8.3",
+    "wavefile": "11.0.0"
+  }
+}

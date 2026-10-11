@@ -1,0 +1,1085 @@
+[
+ {
+  "id": "hook",
+  "text": "Christmas Eve, 1914. Along parts of the Western Front, the guns fall silent. And nobody ordered it.",
+  "duration": 8.452063492063493,
+  "words": [
+   {
+    "text": "Christmas",
+    "start": 0,
+    "end": 0.4
+   },
+   {
+    "text": "Eve,",
+    "start": 0.4,
+    "end": 0.9
+   },
+   {
+    "text": "1914.",
+    "start": 1.08,
+    "end": 2.12
+   },
+   {
+    "text": "Along",
+    "start": 3.3,
+    "end": 3.34
+   },
+   {
+    "text": "parts",
+    "start": 3.34,
+    "end": 3.76
+   },
+   {
+    "text": "of",
+    "start": 3.76,
+    "end": 3.94
+   },
+   {
+    "text": "the",
+    "start": 3.94,
+    "end": 4.06
+   },
+   {
+    "text": "Western",
+    "start": 4.06,
+    "end": 4.4
+   },
+   {
+    "text": "Front,",
+    "start": 4.4,
+    "end": 4.86
+   },
+   {
+    "text": "the",
+    "start": 5.36,
+    "end": 5.44
+   },
+   {
+    "text": "guns",
+    "start": 5.44,
+    "end": 5.78
+   },
+   {
+    "text": "fall",
+    "start": 5.78,
+    "end": 6.14
+   },
+   {
+    "text": "silent.",
+    "start": 6.14,
+    "end": 6.7
+   },
+   {
+    "text": "And",
+    "start": 7.06,
+    "end": 7.42
+   },
+   {
+    "text": "nobody",
+    "start": 7.42,
+    "end": 7.76
+   },
+   {
+    "text": "ordered",
+    "start": 7.76,
+    "end": 8.14
+   },
+   {
+    "text": "it.",
+    "start": 8.14,
+    "end": 8.44
+   }
+  ]
+ },
+ {
+  "id": "setup",
+  "text": "Five months into the First World War, British and German soldiers are dug into freezing, flooded trenches. Between them lies no man's land. In places, less than 100 metres wide.",
+  "duration": 12.72453514739229,
+  "words": [
+   {
+    "text": "Five",
+    "start": 0,
+    "end": 0.36
+   },
+   {
+    "text": "months",
+    "start": 0.36,
+    "end": 0.72
+   },
+   {
+    "text": "into",
+    "start": 0.72,
+    "end": 1
+   },
+   {
+    "text": "the",
+    "start": 1,
+    "end": 1.16
+   },
+   {
+    "text": "First",
+    "start": 1.16,
+    "end": 1.38
+   },
+   {
+    "text": "World",
+    "start": 1.38,
+    "end": 1.7
+   },
+   {
+    "text": "War,",
+    "start": 1.7,
+    "end": 2.26
+   },
+   {
+    "text": "British",
+    "start": 2.72,
+    "end": 2.92
+   },
+   {
+    "text": "and",
+    "start": 2.92,
+    "end": 3.18
+   },
+   {
+    "text": "German",
+    "start": 3.18,
+    "end": 3.5
+   },
+   {
+    "text": "soldiers",
+    "start": 3.5,
+    "end": 3.98
+   },
+   {
+    "text": "are",
+    "start": 3.98,
+    "end": 4.34
+   },
+   {
+    "text": "dug",
+    "start": 4.34,
+    "end": 4.6
+   },
+   {
+    "text": "into",
+    "start": 4.6,
+    "end": 4.88
+   },
+   {
+    "text": "freezing,",
+    "start": 4.88,
+    "end": 5.44
+   },
+   {
+    "text": "flooded",
+    "start": 5.58,
+    "end": 5.92
+   },
+   {
+    "text": "trenches.",
+    "start": 5.92,
+    "end": 6.52
+   },
+   {
+    "text": "Between",
+    "start": 7.52,
+    "end": 7.56
+   },
+   {
+    "text": "them",
+    "start": 7.56,
+    "end": 7.78
+   },
+   {
+    "text": "lies",
+    "start": 7.78,
+    "end": 8.06
+   },
+   {
+    "text": "no",
+    "start": 8.06,
+    "end": 8.38
+   },
+   {
+    "text": "man's",
+    "start": 8.38,
+    "end": 8.8
+   },
+   {
+    "text": "land.",
+    "start": 8.8,
+    "end": 9.16
+   },
+   {
+    "text": "In",
+    "start": 9.72,
+    "end": 9.94
+   },
+   {
+    "text": "places,",
+    "start": 9.94,
+    "end": 10.36
+   },
+   {
+    "text": "less",
+    "start": 10.36,
+    "end": 11.02
+   },
+   {
+    "text": "than",
+    "start": 11.02,
+    "end": 11.26
+   },
+   {
+    "text": "100",
+    "start": 11.36,
+    "end": 11.68
+   },
+   {
+    "text": "metres",
+    "start": 11.68,
+    "end": 12.02
+   },
+   {
+    "text": "wide.",
+    "start": 12.02,
+    "end": 12.58
+   }
+  ]
+ },
+ {
+  "id": "trees",
+  "text": "That night, near Ypres, British sentries spot lights along the German line. Small Christmas trees, glowing with candles.",
+  "duration": 8.916462585034013,
+  "words": [
+   {
+    "text": "That",
+    "start": 0,
+    "end": 0.24
+   },
+   {
+    "text": "night,",
+    "start": 0.24,
+    "end": 0.72
+   },
+   {
+    "text": "near",
+    "start": 1.04,
+    "end": 1.16
+   },
+   {
+    "text": "Ypres,",
+    "start": 1.16,
+    "end": 1.62
+   },
+   {
+    "text": "British",
+    "start": 2.22,
+    "end": 2.48
+   },
+   {
+    "text": "sentries",
+    "start": 2.48,
+    "end": 2.48
+   },
+   {
+    "text": "spot",
+    "start": 2.48,
+    "end": 3
+   },
+   {
+    "text": "lights",
+    "start": 3,
+    "end": 3.8
+   },
+   {
+    "text": "along",
+    "start": 3.8,
+    "end": 4.16
+   },
+   {
+    "text": "the",
+    "start": 4.16,
+    "end": 4.36
+   },
+   {
+    "text": "German",
+    "start": 4.36,
+    "end": 4.64
+   },
+   {
+    "text": "line.",
+    "start": 4.64,
+    "end": 5.12
+   },
+   {
+    "text": "Small",
+    "start": 5.78,
+    "end": 6.08
+   },
+   {
+    "text": "Christmas",
+    "start": 6.08,
+    "end": 6.48
+   },
+   {
+    "text": "trees,",
+    "start": 6.48,
+    "end": 7.1
+   },
+   {
+    "text": "glowing",
+    "start": 7.44,
+    "end": 7.72
+   },
+   {
+    "text": "with",
+    "start": 7.72,
+    "end": 8.06
+   },
+   {
+    "text": "candles.",
+    "start": 8.06,
+    "end": 8.52
+   }
+  ]
+ },
+ {
+  "id": "sing",
+  "text": "Then the Germans begin to sing. Stille Nacht. Silent Night.",
+  "duration": 4.876190476190477,
+  "words": [
+   {
+    "text": "Then",
+    "start": 0,
+    "end": 0.2
+   },
+   {
+    "text": "the",
+    "start": 0.2,
+    "end": 0.38
+   },
+   {
+    "text": "Germans",
+    "start": 0.38,
+    "end": 0.7
+   },
+   {
+    "text": "begin",
+    "start": 0.7,
+    "end": 1.1
+   },
+   {
+    "text": "to",
+    "start": 1.1,
+    "end": 1.34
+   },
+   {
+    "text": "sing.",
+    "start": 1.34,
+    "end": 1.76
+   },
+   {
+    "text": "Stille",
+    "start": 1.76,
+    "end": 2.64
+   },
+   {
+    "text": "Nacht.",
+    "start": 2.64,
+    "end": 3.3
+   },
+   {
+    "text": "Silent",
+    "start": 3.96,
+    "end": 4.22
+   },
+   {
+    "text": "Night.",
+    "start": 4.22,
+    "end": 4.66
+   }
+  ]
+ },
+ {
+  "id": "answer",
+  "text": "The British answer with carols of their own. Song by song, the two trenches take turns.",
+  "duration": 5.990748299319728,
+  "words": [
+   {
+    "text": "The",
+    "start": 0,
+    "end": 0.14
+   },
+   {
+    "text": "British",
+    "start": 0.14,
+    "end": 0.48
+   },
+   {
+    "text": "answer",
+    "start": 0.48,
+    "end": 0.9
+   },
+   {
+    "text": "with",
+    "start": 0.9,
+    "end": 1.24
+   },
+   {
+    "text": "carols",
+    "start": 1.24,
+    "end": 1.66
+   },
+   {
+    "text": "of",
+    "start": 1.66,
+    "end": 1.84
+   },
+   {
+    "text": "their",
+    "start": 1.84,
+    "end": 1.98
+   },
+   {
+    "text": "own.",
+    "start": 1.98,
+    "end": 2.42
+   },
+   {
+    "text": "Song",
+    "start": 2.96,
+    "end": 3.02
+   },
+   {
+    "text": "by",
+    "start": 3.02,
+    "end": 3.32
+   },
+   {
+    "text": "song,",
+    "start": 3.32,
+    "end": 3.8
+   },
+   {
+    "text": "the",
+    "start": 4.18,
+    "end": 4.36
+   },
+   {
+    "text": "two",
+    "start": 4.36,
+    "end": 4.56
+   },
+   {
+    "text": "trenches",
+    "start": 4.56,
+    "end": 4.96
+   },
+   {
+    "text": "take",
+    "start": 4.96,
+    "end": 5.3
+   },
+   {
+    "text": "turns.",
+    "start": 5.3,
+    "end": 5.72
+   }
+  ]
+ },
+ {
+  "id": "morning",
+  "text": "On Christmas morning, a few men climb out of their trenches. Unarmed.",
+  "duration": 5.108390022675737,
+  "words": [
+   {
+    "text": "On",
+    "start": 0,
+    "end": 0.26
+   },
+   {
+    "text": "Christmas",
+    "start": 0.26,
+    "end": 0.64
+   },
+   {
+    "text": "morning,",
+    "start": 0.64,
+    "end": 1.18
+   },
+   {
+    "text": "a",
+    "start": 1.74,
+    "end": 1.82
+   },
+   {
+    "text": "few",
+    "start": 1.82,
+    "end": 2.04
+   },
+   {
+    "text": "men",
+    "start": 2.04,
+    "end": 2.36
+   },
+   {
+    "text": "climb",
+    "start": 2.36,
+    "end": 2.68
+   },
+   {
+    "text": "out",
+    "start": 2.68,
+    "end": 2.92
+   },
+   {
+    "text": "of",
+    "start": 2.92,
+    "end": 3.06
+   },
+   {
+    "text": "their",
+    "start": 3.06,
+    "end": 3.18
+   },
+   {
+    "text": "trenches.",
+    "start": 3.18,
+    "end": 3.66
+   },
+   {
+    "text": "Unarmed.",
+    "start": 4.22,
+    "end": 4.72
+   }
+  ]
+ },
+ {
+  "id": "nobody",
+  "text": "Nobody shoots.",
+  "duration": 1.3467573696145125,
+  "words": [
+   {
+    "text": "Nobody",
+    "start": 0,
+    "end": 0.5
+   },
+   {
+    "text": "shoots.",
+    "start": 0.5,
+    "end": 0.94
+   }
+  ]
+ },
+ {
+  "id": "meet",
+  "text": "Soon, soldiers from both sides are meeting in no man's land. They shake hands, and swap cigarettes, chocolate, buttons and beer.",
+  "duration": 9.380861678004536,
+  "words": [
+   {
+    "text": "Soon,",
+    "start": 0,
+    "end": 0.44
+   },
+   {
+    "text": "soldiers",
+    "start": 1,
+    "end": 1.2
+   },
+   {
+    "text": "from",
+    "start": 1.2,
+    "end": 1.6
+   },
+   {
+    "text": "both",
+    "start": 1.6,
+    "end": 1.82
+   },
+   {
+    "text": "sides",
+    "start": 1.82,
+    "end": 2.26
+   },
+   {
+    "text": "are",
+    "start": 2.26,
+    "end": 2.48
+   },
+   {
+    "text": "meeting",
+    "start": 2.48,
+    "end": 2.74
+   },
+   {
+    "text": "in",
+    "start": 2.74,
+    "end": 3.02
+   },
+   {
+    "text": "no",
+    "start": 3.02,
+    "end": 3.2
+   },
+   {
+    "text": "man's",
+    "start": 3.2,
+    "end": 3.58
+   },
+   {
+    "text": "land.",
+    "start": 3.58,
+    "end": 4
+   },
+   {
+    "text": "They",
+    "start": 4.5,
+    "end": 4.72
+   },
+   {
+    "text": "shake",
+    "start": 4.72,
+    "end": 5
+   },
+   {
+    "text": "hands,",
+    "start": 5,
+    "end": 5.56
+   },
+   {
+    "text": "and",
+    "start": 5.56,
+    "end": 6.08
+   },
+   {
+    "text": "swap",
+    "start": 6.08,
+    "end": 6.4
+   },
+   {
+    "text": "cigarettes,",
+    "start": 6.4,
+    "end": 7
+   },
+   {
+    "text": "chocolate,",
+    "start": 7.4,
+    "end": 7.88
+   },
+   {
+    "text": "buttons",
+    "start": 8.56,
+    "end": 8.56
+   },
+   {
+    "text": "and",
+    "start": 8.56,
+    "end": 8.82
+   },
+   {
+    "text": "beer.",
+    "start": 8.82,
+    "end": 9.14
+   }
+  ]
+ },
+ {
+  "id": "bury",
+  "text": "Together, they bury their dead.",
+  "duration": 2.136235827664399,
+  "words": [
+   {
+    "text": "Together,",
+    "start": 0,
+    "end": 0.52
+   },
+   {
+    "text": "they",
+    "start": 0.52,
+    "end": 0.8
+   },
+   {
+    "text": "bury",
+    "start": 0.8,
+    "end": 1.18
+   },
+   {
+    "text": "their",
+    "start": 1.18,
+    "end": 1.4
+   },
+   {
+    "text": "dead.",
+    "start": 1.4,
+    "end": 1.82
+   }
+  ]
+ },
+ {
+  "id": "football",
+  "text": "And in some places, they even play football.",
+  "duration": 2.786394557823129,
+  "words": [
+   {
+    "text": "And",
+    "start": 0,
+    "end": 0.14
+   },
+   {
+    "text": "in",
+    "start": 0.14,
+    "end": 0.26
+   },
+   {
+    "text": "some",
+    "start": 0.26,
+    "end": 0.52
+   },
+   {
+    "text": "places,",
+    "start": 0.52,
+    "end": 0.98
+   },
+   {
+    "text": "they",
+    "start": 0.98,
+    "end": 1.28
+   },
+   {
+    "text": "even",
+    "start": 1.28,
+    "end": 1.52
+   },
+   {
+    "text": "play",
+    "start": 1.52,
+    "end": 1.82
+   },
+   {
+    "text": "football.",
+    "start": 1.82,
+    "end": 2.36
+   }
+  ]
+ },
+ {
+  "id": "lasts",
+  "text": "In some sectors, the truce lasts until Boxing Day. In a few, into the new year.",
+  "duration": 6.501587301587302,
+  "words": [
+   {
+    "text": "In",
+    "start": 0,
+    "end": 0.16
+   },
+   {
+    "text": "some",
+    "start": 0.16,
+    "end": 0.42
+   },
+   {
+    "text": "sectors,",
+    "start": 0.42,
+    "end": 1
+   },
+   {
+    "text": "the",
+    "start": 1.5,
+    "end": 1.56
+   },
+   {
+    "text": "truce",
+    "start": 1.56,
+    "end": 1.86
+   },
+   {
+    "text": "lasts",
+    "start": 1.86,
+    "end": 2.24
+   },
+   {
+    "text": "until",
+    "start": 2.24,
+    "end": 2.72
+   },
+   {
+    "text": "Boxing",
+    "start": 2.72,
+    "end": 3.08
+   },
+   {
+    "text": "Day.",
+    "start": 3.08,
+    "end": 3.58
+   },
+   {
+    "text": "In",
+    "start": 4,
+    "end": 4.34
+   },
+   {
+    "text": "a",
+    "start": 4.34,
+    "end": 4.46
+   },
+   {
+    "text": "few,",
+    "start": 4.46,
+    "end": 4.82
+   },
+   {
+    "text": "into",
+    "start": 4.82,
+    "end": 5.6
+   },
+   {
+    "text": "the",
+    "start": 5.6,
+    "end": 5.76
+   },
+   {
+    "text": "new",
+    "start": 5.76,
+    "end": 5.94
+   },
+   {
+    "text": "year.",
+    "start": 5.94,
+    "end": 6.3
+   }
+  ]
+ },
+ {
+  "id": "orders",
+  "text": "Commanders on both sides are furious. It will never happen on this scale again.",
+  "duration": 5.340589569160998,
+  "words": [
+   {
+    "text": "Commanders",
+    "start": 0,
+    "end": 0.64
+   },
+   {
+    "text": "on",
+    "start": 0.64,
+    "end": 0.84
+   },
+   {
+    "text": "both",
+    "start": 0.84,
+    "end": 1.04
+   },
+   {
+    "text": "sides",
+    "start": 1.04,
+    "end": 1.4
+   },
+   {
+    "text": "are",
+    "start": 1.4,
+    "end": 1.66
+   },
+   {
+    "text": "furious.",
+    "start": 1.66,
+    "end": 2.16
+   },
+   {
+    "text": "It",
+    "start": 2.68,
+    "end": 2.88
+   },
+   {
+    "text": "will",
+    "start": 2.88,
+    "end": 3.06
+   },
+   {
+    "text": "never",
+    "start": 3.06,
+    "end": 3.36
+   },
+   {
+    "text": "happen",
+    "start": 3.36,
+    "end": 3.72
+   },
+   {
+    "text": "on",
+    "start": 3.72,
+    "end": 3.92
+   },
+   {
+    "text": "this",
+    "start": 3.92,
+    "end": 4.12
+   },
+   {
+    "text": "scale",
+    "start": 4.12,
+    "end": 4.48
+   },
+   {
+    "text": "again.",
+    "start": 4.48,
+    "end": 4.94
+   }
+  ]
+ },
+ {
+  "id": "war",
+  "text": "The war goes on for almost four more years, and claims millions of lives.",
+  "duration": 5.294149659863946,
+  "words": [
+   {
+    "text": "The",
+    "start": 0,
+    "end": 0.14
+   },
+   {
+    "text": "war",
+    "start": 0.14,
+    "end": 0.38
+   },
+   {
+    "text": "goes",
+    "start": 0.38,
+    "end": 0.62
+   },
+   {
+    "text": "on",
+    "start": 0.62,
+    "end": 0.98
+   },
+   {
+    "text": "for",
+    "start": 0.98,
+    "end": 1.2
+   },
+   {
+    "text": "almost",
+    "start": 1.2,
+    "end": 1.54
+   },
+   {
+    "text": "four",
+    "start": 1.54,
+    "end": 1.92
+   },
+   {
+    "text": "more",
+    "start": 1.92,
+    "end": 2.16
+   },
+   {
+    "text": "years,",
+    "start": 2.16,
+    "end": 2.66
+   },
+   {
+    "text": "and",
+    "start": 2.66,
+    "end": 3.2
+   },
+   {
+    "text": "claims",
+    "start": 3.2,
+    "end": 3.64
+   },
+   {
+    "text": "millions",
+    "start": 3.64,
+    "end": 4.04
+   },
+   {
+    "text": "of",
+    "start": 4.04,
+    "end": 4.44
+   },
+   {
+    "text": "lives.",
+    "start": 4.44,
+    "end": 4.92
+   }
+  ]
+ },
+ {
+  "id": "outro",
+  "text": "But for one Christmas, the men in the trenches chose peace, on their own.",
+  "duration": 5.015510204081632,
+  "words": [
+   {
+    "text": "But",
+    "start": 0,
+    "end": 0.18
+   },
+   {
+    "text": "for",
+    "start": 0.18,
+    "end": 0.36
+   },
+   {
+    "text": "one",
+    "start": 0.36,
+    "end": 0.58
+   },
+   {
+    "text": "Christmas,",
+    "start": 0.58,
+    "end": 1.08
+   },
+   {
+    "text": "the",
+    "start": 1.66,
+    "end": 1.72
+   },
+   {
+    "text": "men",
+    "start": 1.72,
+    "end": 1.92
+   },
+   {
+    "text": "in",
+    "start": 1.92,
+    "end": 2.08
+   },
+   {
+    "text": "the",
+    "start": 2.08,
+    "end": 2.2
+   },
+   {
+    "text": "trenches",
+    "start": 2.2,
+    "end": 2.56
+   },
+   {
+    "text": "chose",
+    "start": 2.56,
+    "end": 3.02
+   },
+   {
+    "text": "peace,",
+    "start": 3.02,
+    "end": 3.48
+   },
+   {
+    "text": "on",
+    "start": 3.48,
+    "end": 4.24
+   },
+   {
+    "text": "their",
+    "start": 4.24,
+    "end": 4.4
+   },
+   {
+    "text": "own.",
+    "start": 4.4,
+    "end": 4.78
+   }
+  ]
+ }
+]
