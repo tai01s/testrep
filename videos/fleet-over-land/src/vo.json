@@ -2,946 +2,946 @@
  {
   "id": "hook1",
   "text": "How do you get a navy past an unbreakable chain?",
-  "duration": 3.65,
+  "duration": 2.972154195011338,
   "words": [
    {
     "text": "How",
     "start": 0,
-    "end": 0.48
+    "end": 0.16
    },
    {
     "text": "do",
-    "start": 0.48,
-    "end": 0.6
+    "start": 0.16,
+    "end": 0.28
    },
    {
     "text": "you",
-    "start": 0.6,
-    "end": 0.72
+    "start": 0.28,
+    "end": 0.38
    },
    {
     "text": "get",
-    "start": 0.72,
-    "end": 0.84
+    "start": 0.38,
+    "end": 0.52
    },
    {
     "text": "a",
-    "start": 0.84,
-    "end": 0.96
+    "start": 0.52,
+    "end": 0.68
    },
    {
     "text": "navy",
-    "start": 0.96,
-    "end": 1.28
+    "start": 0.68,
+    "end": 0.96
    },
    {
     "text": "past",
-    "start": 1.28,
-    "end": 1.84
+    "start": 0.96,
+    "end": 1.36
    },
    {
     "text": "an",
-    "start": 1.84,
-    "end": 2.02
+    "start": 1.36,
+    "end": 1.58
    },
    {
     "text": "unbreakable",
-    "start": 2.02,
-    "end": 2.6
+    "start": 1.58,
+    "end": 2.26
    },
    {
     "text": "chain?",
-    "start": 2.6,
-    "end": 3
+    "start": 2.26,
+    "end": 2.66
    }
   ]
  },
  {
   "id": "hook2",
   "text": "You take it for a walk.",
-  "duration": 1.975,
+  "duration": 1.6253968253968254,
   "words": [
    {
     "text": "You",
     "start": 0,
-    "end": 0.44
+    "end": 0.2
    },
    {
     "text": "take",
-    "start": 0.44,
-    "end": 0.68
+    "start": 0.2,
+    "end": 0.4
    },
    {
     "text": "it",
-    "start": 0.68,
-    "end": 0.86
+    "start": 0.4,
+    "end": 0.64
    },
    {
     "text": "for",
-    "start": 0.86,
-    "end": 1.06
+    "start": 0.64,
+    "end": 0.92
    },
    {
     "text": "a",
-    "start": 1.06,
-    "end": 1.26
+    "start": 0.92,
+    "end": 1.1
    },
    {
     "text": "walk.",
-    "start": 1.26,
-    "end": 1.48
+    "start": 1.1,
+    "end": 1.42
    }
   ]
  },
  {
   "id": "setup",
   "text": "Constantinople, spring of 1453. 21-year-old Sultan Mehmed II has the city surrounded.",
-  "duration": 8.475,
+  "duration": 8.6378231292517,
   "words": [
    {
     "text": "Constantinople,",
     "start": 0,
-    "end": 0.88
+    "end": 0.6
    },
    {
     "text": "spring",
-    "start": 1.56,
-    "end": 1.92
+    "start": 1.28,
+    "end": 1.74
    },
    {
     "text": "of",
-    "start": 1.92,
-    "end": 2.18
+    "start": 1.74,
+    "end": 2.04
    },
    {
     "text": "1453.",
-    "start": 2.18,
-    "end": 3.22
+    "start": 2.04,
+    "end": 3.46
    },
    {
     "text": "21-year-old",
-    "start": 3.98,
-    "end": 4.86
+    "start": 3.96,
+    "end": 4.98
    },
    {
     "text": "Sultan",
-    "start": 4.86,
-    "end": 5.34
+    "start": 4.98,
+    "end": 5.5
    },
    {
     "text": "Mehmed",
-    "start": 5.34,
-    "end": 5.88
+    "start": 5.5,
+    "end": 6.06
    },
    {
     "text": "II",
-    "start": 5.88,
-    "end": 6.28
+    "start": 6.06,
+    "end": 6.48
    },
    {
     "text": "has",
-    "start": 6.28,
-    "end": 6.82
+    "start": 6.48,
+    "end": 7.2
    },
    {
     "text": "the",
-    "start": 6.82,
-    "end": 7.02
+    "start": 7.2,
+    "end": 7.4
    },
    {
     "text": "city",
-    "start": 7.02,
-    "end": 7.24
+    "start": 7.4,
+    "end": 7.64
    },
    {
     "text": "surrounded.",
-    "start": 7.24,
-    "end": 7.8
+    "start": 7.64,
+    "end": 8.34
    }
   ]
  },
  {
   "id": "chain",
   "text": "But its harbor, the Golden Horn, is sealed by a massive iron chain, floating right across the entrance.",
-  "duration": 7,
+  "duration": 7.012426303854875,
   "words": [
    {
     "text": "But",
     "start": 0,
-    "end": 0.42
+    "end": 0.12
    },
    {
     "text": "its",
-    "start": 0.42,
-    "end": 0.58
+    "start": 0.12,
+    "end": 0.32
    },
    {
     "text": "harbor,",
-    "start": 0.58,
-    "end": 0.9
+    "start": 0.32,
+    "end": 0.72
    },
    {
     "text": "the",
-    "start": 1.18,
-    "end": 1.26
+    "start": 1.06,
+    "end": 1.22
    },
    {
     "text": "Golden",
-    "start": 1.26,
+    "start": 1.22,
     "end": 1.54
    },
    {
     "text": "Horn,",
     "start": 1.54,
-    "end": 1.9
+    "end": 1.96
    },
    {
     "text": "is",
-    "start": 2.28,
-    "end": 2.54
+    "start": 2.36,
+    "end": 2.58
    },
    {
     "text": "sealed",
-    "start": 2.54,
-    "end": 2.82
+    "start": 2.58,
+    "end": 2.88
    },
    {
     "text": "by",
-    "start": 2.82,
-    "end": 3.08
+    "start": 2.88,
+    "end": 3.14
    },
    {
     "text": "a",
-    "start": 3.08,
-    "end": 3.26
+    "start": 3.14,
+    "end": 3.32
    },
    {
     "text": "massive",
-    "start": 3.26,
-    "end": 3.62
+    "start": 3.32,
+    "end": 3.78
    },
    {
     "text": "iron",
-    "start": 3.62,
-    "end": 3.98
+    "start": 3.78,
+    "end": 4.22
    },
    {
     "text": "chain,",
-    "start": 3.98,
-    "end": 4.46
+    "start": 4.22,
+    "end": 4.76
    },
    {
     "text": "floating",
-    "start": 4.46,
-    "end": 5.06
+    "start": 4.76,
+    "end": 5.3
    },
    {
     "text": "right",
-    "start": 5.06,
-    "end": 5.46
-   },
-   {
-    "text": "across",
-    "start": 5.46,
+    "start": 5.3,
     "end": 5.76
    },
    {
-    "text": "the",
+    "text": "across",
     "start": 5.76,
-    "end": 5.98
+    "end": 6.06
+   },
+   {
+    "text": "the",
+    "start": 6.06,
+    "end": 6.32
    },
    {
     "text": "entrance.",
-    "start": 5.98,
-    "end": 6.36
+    "start": 6.32,
+    "end": 6.68
    }
   ]
  },
  {
   "id": "fail",
   "text": "His fleet attacks it. And fails.",
-  "duration": 2.55,
+  "duration": 2.6006349206349206,
   "words": [
    {
     "text": "His",
     "start": 0,
-    "end": 0.46
+    "end": 0.18
    },
    {
     "text": "fleet",
-    "start": 0.46,
-    "end": 0.66
+    "start": 0.18,
+    "end": 0.54
    },
    {
     "text": "attacks",
-    "start": 0.66,
-    "end": 0.98
+    "start": 0.54,
+    "end": 1.08
    },
    {
     "text": "it.",
-    "start": 0.98,
-    "end": 1.24
+    "start": 1.08,
+    "end": 1.44
    },
    {
     "text": "And",
-    "start": 1.24,
-    "end": 1.54
+    "start": 1.44,
+    "end": 1.82
    },
    {
     "text": "fails.",
-    "start": 1.54,
-    "end": 1.9
+    "start": 1.82,
+    "end": 2.24
    }
   ]
  },
  {
   "id": "twist",
   "text": "So Mehmed does something nobody sees coming.",
-  "duration": 3.175,
+  "duration": 2.8792743764172335,
   "words": [
    {
     "text": "So",
     "start": 0,
-    "end": 0.46
+    "end": 0.24
    },
    {
     "text": "Mehmed",
+    "start": 0.24,
+    "end": 0.46
+   },
+   {
+    "text": "does",
     "start": 0.46,
     "end": 0.8
    },
    {
-    "text": "does",
-    "start": 0.8,
-    "end": 1.06
-   },
-   {
     "text": "something",
-    "start": 1.06,
-    "end": 1.34
+    "start": 0.8,
+    "end": 1.18
    },
    {
     "text": "nobody",
-    "start": 1.34,
-    "end": 1.7
+    "start": 1.18,
+    "end": 1.68
    },
    {
     "text": "sees",
-    "start": 1.7,
-    "end": 2.12
+    "start": 1.68,
+    "end": 2.08
    },
    {
     "text": "coming.",
-    "start": 2.12,
-    "end": 2.62
+    "start": 2.08,
+    "end": 2.58
    }
   ]
  },
  {
   "id": "road",
   "text": "His men lay a road of wooden planks over the hills behind Galata, and grease it with animal fat.",
-  "duration": 6.525,
+  "duration": 6.315827664399093,
   "words": [
    {
     "text": "His",
     "start": 0,
-    "end": 0.44
+    "end": 0.16
    },
    {
     "text": "men",
-    "start": 0.44,
-    "end": 0.74
+    "start": 0.16,
+    "end": 0.48
    },
    {
     "text": "lay",
-    "start": 0.74,
-    "end": 1.04
+    "start": 0.48,
+    "end": 0.76
    },
    {
     "text": "a",
-    "start": 1.04,
-    "end": 1.22
+    "start": 0.76,
+    "end": 0.92
    },
    {
     "text": "road",
-    "start": 1.22,
-    "end": 1.46
+    "start": 0.92,
+    "end": 1.14
    },
    {
     "text": "of",
-    "start": 1.46,
-    "end": 1.62
+    "start": 1.14,
+    "end": 1.32
    },
    {
     "text": "wooden",
-    "start": 1.62,
-    "end": 1.9
+    "start": 1.32,
+    "end": 1.7
    },
    {
     "text": "planks",
-    "start": 1.9,
-    "end": 2.3
+    "start": 1.7,
+    "end": 2.26
    },
    {
     "text": "over",
-    "start": 2.3,
-    "end": 2.48
+    "start": 2.26,
+    "end": 2.58
    },
    {
     "text": "the",
-    "start": 2.48,
-    "end": 2.62
+    "start": 2.58,
+    "end": 2.76
    },
    {
     "text": "hills",
-    "start": 2.62,
-    "end": 2.86
+    "start": 2.76,
+    "end": 3.06
    },
    {
     "text": "behind",
-    "start": 2.86,
-    "end": 3.32
+    "start": 3.06,
+    "end": 3.56
    },
    {
     "text": "Galata,",
-    "start": 3.32,
-    "end": 3.76
+    "start": 3.56,
+    "end": 4.02
    },
    {
     "text": "and",
-    "start": 3.76,
-    "end": 4.44
+    "start": 4.02,
+    "end": 4.64
    },
    {
     "text": "grease",
-    "start": 4.44,
-    "end": 4.72
+    "start": 4.64,
+    "end": 4.92
    },
    {
     "text": "it",
-    "start": 4.72,
-    "end": 4.98
+    "start": 4.92,
+    "end": 5.22
    },
    {
     "text": "with",
-    "start": 4.98,
-    "end": 5.18
+    "start": 5.22,
+    "end": 5.4
    },
    {
     "text": "animal",
-    "start": 5.18,
-    "end": 5.58
+    "start": 5.4,
+    "end": 5.8
    },
    {
     "text": "fat.",
-    "start": 5.58,
-    "end": 5.96
+    "start": 5.8,
+    "end": 6.18
    }
   ]
  },
  {
   "id": "drag",
   "text": "Then they drag the ships out of the sea. Around 70 of them. Up and over the hill.",
-  "duration": 5.45,
+  "duration": 5.897868480725624,
   "words": [
    {
     "text": "Then",
     "start": 0,
-    "end": 0.46
+    "end": 0.22
    },
    {
     "text": "they",
-    "start": 0.46,
-    "end": 0.62
+    "start": 0.22,
+    "end": 0.44
    },
    {
     "text": "drag",
-    "start": 0.62,
+    "start": 0.44,
+    "end": 0.7
+   },
+   {
+    "text": "the",
+    "start": 0.7,
     "end": 0.9
    },
    {
-    "text": "the",
-    "start": 0.9,
-    "end": 1.1
-   },
-   {
     "text": "ships",
-    "start": 1.1,
-    "end": 1.3
+    "start": 0.9,
+    "end": 1.16
    },
    {
     "text": "out",
-    "start": 1.3,
-    "end": 1.48
+    "start": 1.16,
+    "end": 1.5
    },
    {
     "text": "of",
-    "start": 1.48,
-    "end": 1.6
-   },
-   {
-    "text": "the",
-    "start": 1.6,
+    "start": 1.5,
     "end": 1.66
    },
    {
-    "text": "sea.",
+    "text": "the",
     "start": 1.66,
-    "end": 1.94
+    "end": 1.78
+   },
+   {
+    "text": "sea.",
+    "start": 1.78,
+    "end": 2.08
    },
    {
     "text": "Around",
-    "start": 2.6,
-    "end": 2.78
+    "start": 2.84,
+    "end": 2.96
    },
    {
     "text": "70",
-    "start": 2.78,
-    "end": 3.1
+    "start": 2.96,
+    "end": 3.3
    },
    {
     "text": "of",
-    "start": 3.1,
-    "end": 3.38
-   },
-   {
-    "text": "them.",
-    "start": 3.38,
+    "start": 3.3,
     "end": 3.64
    },
    {
+    "text": "them.",
+    "start": 3.64,
+    "end": 4.04
+   },
+   {
     "text": "Up",
-    "start": 3.9,
-    "end": 4.12
-   },
-   {
-    "text": "and",
-    "start": 4.12,
-    "end": 4.32
-   },
-   {
-    "text": "over",
-    "start": 4.32,
-    "end": 4.48
-   },
-   {
-    "text": "the",
-    "start": 4.48,
+    "start": 4.34,
     "end": 4.62
    },
    {
-    "text": "hill.",
+    "text": "and",
     "start": 4.62,
     "end": 4.86
+   },
+   {
+    "text": "over",
+    "start": 4.86,
+    "end": 5.18
+   },
+   {
+    "text": "the",
+    "start": 5.18,
+    "end": 5.4
+   },
+   {
+    "text": "hill.",
+    "start": 5.4,
+    "end": 5.66
    }
   ]
  },
  {
   "id": "oars",
   "text": "Chroniclers say the sails were raised, and the rowers pulled their oars through the air.",
-  "duration": 5.225,
+  "duration": 5.015510204081632,
   "words": [
    {
     "text": "Chroniclers",
     "start": 0,
-    "end": 0.8
+    "end": 0.54
    },
    {
     "text": "say",
-    "start": 0.8,
-    "end": 1.04
+    "start": 0.54,
+    "end": 0.8
    },
    {
     "text": "the",
-    "start": 1.04,
-    "end": 1.2
+    "start": 0.8,
+    "end": 1
    },
    {
     "text": "sails",
-    "start": 1.2,
-    "end": 1.44
+    "start": 1,
+    "end": 1.28
    },
    {
     "text": "were",
-    "start": 1.44,
-    "end": 1.7
+    "start": 1.28,
+    "end": 1.56
    },
    {
     "text": "raised,",
-    "start": 1.7,
-    "end": 2.08
+    "start": 1.56,
+    "end": 1.96
    },
    {
     "text": "and",
-    "start": 2.08,
-    "end": 2.64
+    "start": 1.96,
+    "end": 2.44
    },
    {
     "text": "the",
-    "start": 2.64,
-    "end": 2.76
+    "start": 2.44,
+    "end": 2.6
    },
    {
     "text": "rowers",
-    "start": 2.76,
-    "end": 3.14
+    "start": 2.6,
+    "end": 3.02
    },
    {
     "text": "pulled",
-    "start": 3.14,
-    "end": 3.4
+    "start": 3.02,
+    "end": 3.32
    },
    {
     "text": "their",
-    "start": 3.4,
-    "end": 3.62
+    "start": 3.32,
+    "end": 3.56
    },
    {
     "text": "oars",
-    "start": 3.62,
+    "start": 3.56,
     "end": 3.96
    },
    {
     "text": "through",
     "start": 3.96,
-    "end": 4.24
+    "end": 4.22
    },
    {
     "text": "the",
-    "start": 4.24,
-    "end": 4.38
+    "start": 4.22,
+    "end": 4.42
    },
    {
     "text": "air.",
-    "start": 4.38,
-    "end": 4.66
+    "start": 4.42,
+    "end": 4.72
    }
   ]
  },
  {
   "id": "reveal",
   "text": "On April 22, the defenders wake up to an enemy fleet inside their own harbor. Behind the chain.",
-  "duration": 7.35,
+  "duration": 7.1053061224489795,
   "words": [
    {
     "text": "On",
     "start": 0,
-    "end": 0.46
+    "end": 0.16
    },
    {
     "text": "April",
-    "start": 0.46,
-    "end": 0.74
+    "start": 0.16,
+    "end": 0.48
    },
    {
     "text": "22,",
-    "start": 0.74,
-    "end": 1.88
+    "start": 0.48,
+    "end": 1.56
    },
    {
     "text": "the",
-    "start": 2,
-    "end": 2.06
+    "start": 1.68,
+    "end": 1.74
    },
    {
     "text": "defenders",
-    "start": 2.06,
-    "end": 2.42
+    "start": 1.74,
+    "end": 2.14
    },
    {
     "text": "wake",
-    "start": 2.42,
-    "end": 2.84
+    "start": 2.14,
+    "end": 2.52
    },
    {
     "text": "up",
-    "start": 2.84,
-    "end": 3.02
+    "start": 2.52,
+    "end": 2.76
    },
    {
     "text": "to",
-    "start": 3.02,
-    "end": 3.18
+    "start": 2.76,
+    "end": 3
    },
    {
     "text": "an",
-    "start": 3.18,
-    "end": 3.34
+    "start": 3,
+    "end": 3.18
    },
    {
     "text": "enemy",
-    "start": 3.34,
-    "end": 3.62
+    "start": 3.18,
+    "end": 3.54
    },
    {
     "text": "fleet",
-    "start": 3.62,
-    "end": 3.96
+    "start": 3.54,
+    "end": 3.9
    },
    {
     "text": "inside",
-    "start": 3.96,
-    "end": 4.4
+    "start": 3.9,
+    "end": 4.42
    },
    {
     "text": "their",
-    "start": 4.4,
-    "end": 4.64
+    "start": 4.42,
+    "end": 4.7
    },
    {
     "text": "own",
-    "start": 4.64,
-    "end": 4.86
+    "start": 4.7,
+    "end": 5.02
    },
    {
     "text": "harbor.",
-    "start": 4.86,
-    "end": 5.2
+    "start": 5.02,
+    "end": 5.44
    },
    {
     "text": "Behind",
     "start": 5.88,
-    "end": 6.2
+    "end": 6.28
    },
    {
     "text": "the",
-    "start": 6.2,
-    "end": 6.4
+    "start": 6.28,
+    "end": 6.48
    },
    {
     "text": "chain.",
-    "start": 6.4,
-    "end": 6.74
+    "start": 6.48,
+    "end": 6.84
    }
   ]
  },
  {
   "id": "stretch",
   "text": "Now the sea walls need guarding too, and a city already short on soldiers is stretched even thinner.",
-  "duration": 6.65,
+  "duration": 6.965986394557823,
   "words": [
    {
     "text": "Now",
     "start": 0,
-    "end": 0.56
+    "end": 0.28
    },
    {
     "text": "the",
-    "start": 0.56,
-    "end": 0.78
+    "start": 0.28,
+    "end": 0.48
    },
    {
     "text": "sea",
-    "start": 0.78,
-    "end": 0.78
+    "start": 0.48,
+    "end": 0.68
    },
    {
     "text": "walls",
-    "start": 0.78,
-    "end": 1.2
+    "start": 0.68,
+    "end": 1.02
    },
    {
     "text": "need",
-    "start": 1.2,
-    "end": 1.5
+    "start": 1.02,
+    "end": 1.3
    },
    {
     "text": "guarding",
-    "start": 1.5,
-    "end": 1.8
+    "start": 1.3,
+    "end": 1.68
    },
    {
     "text": "too,",
-    "start": 1.8,
-    "end": 2.22
+    "start": 1.68,
+    "end": 2.18
    },
    {
     "text": "and",
     "start": 2.66,
-    "end": 2.78
+    "end": 2.84
    },
    {
     "text": "a",
-    "start": 2.78,
-    "end": 2.92
+    "start": 2.84,
+    "end": 3
    },
    {
     "text": "city",
-    "start": 2.92,
-    "end": 3.14
+    "start": 3,
+    "end": 3.24
    },
    {
     "text": "already",
-    "start": 3.14,
-    "end": 3.48
+    "start": 3.24,
+    "end": 3.78
    },
    {
     "text": "short",
-    "start": 3.48,
-    "end": 3.84
+    "start": 3.78,
+    "end": 4.2
    },
    {
     "text": "on",
-    "start": 3.84,
-    "end": 4.08
+    "start": 4.2,
+    "end": 4.46
    },
    {
     "text": "soldiers",
-    "start": 4.08,
-    "end": 4.48
+    "start": 4.46,
+    "end": 4.9
    },
    {
     "text": "is",
-    "start": 4.48,
-    "end": 4.96
+    "start": 4.9,
+    "end": 5.26
    },
    {
     "text": "stretched",
-    "start": 4.96,
-    "end": 5.24
+    "start": 5.26,
+    "end": 5.66
    },
    {
     "text": "even",
-    "start": 5.24,
-    "end": 5.68
+    "start": 5.66,
+    "end": 6.3
    },
    {
     "text": "thinner.",
-    "start": 5.68,
-    "end": 6.04
+    "start": 6.3,
+    "end": 6.7
    }
   ]
  },
  {
   "id": "fall",
   "text": "Five weeks later, on May 29, Constantinople falls. And a 1,000-year empire is gone.",
-  "duration": 7.275,
+  "duration": 7.1053061224489795,
   "words": [
    {
     "text": "Five",
     "start": 0,
-    "end": 0.6
+    "end": 0.38
    },
    {
     "text": "weeks",
-    "start": 0.6,
-    "end": 0.8
+    "start": 0.38,
+    "end": 0.62
    },
    {
     "text": "later,",
-    "start": 0.8,
-    "end": 1.24
+    "start": 0.62,
+    "end": 1.12
    },
    {
     "text": "on",
-    "start": 1.44,
-    "end": 1.52
+    "start": 1.36,
+    "end": 1.56
    },
    {
     "text": "May",
-    "start": 1.52,
-    "end": 1.7
+    "start": 1.56,
+    "end": 1.76
    },
    {
     "text": "29,",
-    "start": 1.7,
-    "end": 2.28
+    "start": 1.76,
+    "end": 2.38
    },
    {
     "text": "Constantinople",
-    "start": 2.8,
-    "end": 3.26
+    "start": 2.98,
+    "end": 3.44
    },
    {
     "text": "falls.",
-    "start": 3.26,
-    "end": 3.9
+    "start": 3.44,
+    "end": 4.1
    },
    {
     "text": "And",
-    "start": 4.48,
-    "end": 4.72
+    "start": 4.62,
+    "end": 4.86
    },
    {
     "text": "a",
-    "start": 4.72,
-    "end": 4.84
+    "start": 4.86,
+    "end": 4.98
    },
    {
     "text": "1,000-year",
-    "start": 5.28,
-    "end": 5.52
+    "start": 5.34,
+    "end": 5.56
    },
    {
     "text": "empire",
-    "start": 5.52,
-    "end": 5.96
+    "start": 5.56,
+    "end": 6.06
    },
    {
     "text": "is",
-    "start": 5.96,
-    "end": 6.28
+    "start": 6.06,
+    "end": 6.46
    },
    {
     "text": "gone.",
-    "start": 6.28,
-    "end": 6.62
+    "start": 6.46,
+    "end": 6.84
    }
   ]
  },
  {
   "id": "outro",
   "text": "All because one sultan took his navy for a walk.",
-  "duration": 3.45,
+  "duration": 3.1579138321995464,
   "words": [
    {
     "text": "All",
     "start": 0,
-    "end": 0.48
+    "end": 0.16
    },
    {
     "text": "because",
-    "start": 0.48,
-    "end": 0.72
+    "start": 0.16,
+    "end": 0.48
    },
    {
     "text": "one",
-    "start": 0.72,
-    "end": 1.06
+    "start": 0.48,
+    "end": 0.88
    },
    {
     "text": "sultan",
-    "start": 1.06,
-    "end": 1.46
+    "start": 0.88,
+    "end": 1.32
    },
    {
     "text": "took",
-    "start": 1.46,
-    "end": 1.72
+    "start": 1.32,
+    "end": 1.68
    },
    {
     "text": "his",
-    "start": 1.72,
-    "end": 1.9
+    "start": 1.68,
+    "end": 1.86
    },
    {
     "text": "navy",
-    "start": 1.9,
+    "start": 1.86,
     "end": 2.16
    },
    {
     "text": "for",
     "start": 2.16,
-    "end": 2.5
+    "end": 2.48
    },
    {
     "text": "a",
-    "start": 2.5,
-    "end": 2.64
+    "start": 2.48,
+    "end": 2.62
    },
    {
     "text": "walk.",
-    "start": 2.64,
-    "end": 2.9
+    "start": 2.62,
+    "end": 2.98
    }
   ]
  }
