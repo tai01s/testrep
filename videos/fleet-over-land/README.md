@@ -26,8 +26,8 @@ The finished video is **`fleet-over-land.mp4`**. Its audio is normalised to −1
   `yt-dlp -x -f m4a -o public/music/tusovshchitsa.m4a "https://www.youtube.com/watch?v=eF6LRJiqIpo"`
   `src/Soundtrack.tsx` lines up the track's drops (30.95 s and 107.75 s) with the "drag" line and the word "falls". It also ducks the music under the narration.
 - **Narration:** one WAV per line in `public/vo/`, with the script in `scripts/lines.json`.
-  - `FISH_API_KEY=... npm run voice:fish` uses Fish Audio. The default voice is "calm woman" (`0f2279f5f3894673a675eb85a61e1e2e`); override it with `FISH_VOICE_ID`. Fish bills **API credit** separately from platform credit.
-  - `npm run voice:local` uses the free local Kokoro voice (`af_heart`). The current render uses this one.
+  - `FISH_API_KEY=... npm run voice:fish` uses Fish Audio. The current render uses this one. The default voice is "calm woman" (`0f2279f5f3894673a675eb85a61e1e2e`); override it with `FISH_VOICE_ID`. The default model is `s2.1-pro-free`, which needs no API credit. Paid models such as `s1` (set with `FISH_MODEL`) need API credit, which Fish bills separately from platform credit.
+  - `npm run voice:local` uses a free offline Kokoro voice (`af_heart`) as a fallback.
   - After regenerating the voice, run `npm run align`. It re-times the captions with Whisper, and the whole timeline re-flows to the new line lengths.
 - **SFX:** synthesised by `scripts/make-sfx.py`.
 
