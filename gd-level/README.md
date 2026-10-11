@@ -9,9 +9,10 @@ requester's OK.
 | `research/FINDINGS.md` | Answers to the six research questions, with sources |
 | `research/reference-levels.md` | Decoded data from the 8 reference levels (palettes, layers, object vocabulary, sync, song handling) |
 | `research/aredl-600.md` | What "top 600" means in difficulty terms |
-| `tools/` | Python tools that decode and analyse GDShare `.gmd` exports |
+| `research/CHERRYTEAM_DECO.md` | What cherryteam deco is actually made of (real-sprite renders taken apart) and the v2 rules |
+| `tools/` | Python tools that decode and analyse GDShare `.gmd` exports. `render_real.py` draws frames with GD's real sprites (needs `GDRWEB_ASSETS`); `dissect.py` splits a frame by layer with a census; `zoom.py` lists one structure object by object |
 
-**Status:** song mapped and cut; test v1 (first ~11 s) built. Waiting on your test report.
+**Status:** test v1 was rejected as far below the cherryteam standard. Cherryteam deco has now been studied with real-sprite renders; v2 of the first 10% is next.
 
 ## Build (Phase 3/4 test)
 
