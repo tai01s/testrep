@@ -93,3 +93,57 @@ distinct values).
   gravity, size, dual, mirror, teleport) and 34 gamemode changes in ~70 s. The median gap between gamemode changes is
   0.6 s. Antarctic Lights has 155 portal events in ~58 s.
 - For AREDL ~#600 that's far too dense. See `aredl-600.md`.
+
+## Custom-art construction (the 3 most hand-built references)
+
+These numbers count only deco objects, leaving out triggers and gameplay objects.
+
+| Level | Off the 7.5-unit grid | Rotated off 90° | Warped |
+|---|---:|---:|---:|
+| Thinking Space II | 99.6% | 53% | 0.3% |
+| GRIEF | 90% | 42% | 1% |
+| Society | 87% | 30% | 15% |
+| ORBIT | 86% | 21% | 13% |
+| Flamewall | 94% | 21% | 0% |
+| Artemis 13 | 91% | 12% | 7% |
+| Green Bullet | 83% | 10% | 7% |
+| Antarctic Lights | 57% | 24% | 0.6% |
+
+What their non-glow shapes are built from:
+
+**Thinking Space II:**
+- Jagged Rocks outlines (1679/1666): median scale 1.8×, 79–97% rotated, 69–76% HSV-shifted.
+- Colored Inner Square (211): about 1.8×, 42% rotated.
+- 3DL lines (507/508), mostly rotated.
+- Large Cloud (130), industrial blocks, dot clusters, drips, chains, grass connectors.
+- The detail objects are repurposed for their shape: scaled, rotated, shaded with HSV.
+
+**GRIEF:**
+- Black pit spikes (1715): 84% rotated, used as shape pieces.
+- 3DL lines; Colored Inner Square.
+- Fire animation at 0.25× (84% HSV-shifted).
+- Decorative spikes, wide slopes (688/694), tiny triangles, grass toppers, bricks.
+
+**Society:**
+- **3DL Half Top Middle (508) ×27.9k and 3DL Top Middle (507) ×11.7k**, 72–79% rotated. Line art is the
+  backbone.
+- Colored Inner Square ×12.5k.
+- Beveled bricks, sixteenth blocks, slopes (693/698), wooden planks, pixel-art objects, text objects.
+
+## Primitive sizes (measured from edge-to-edge tiling across all 8 levels)
+
+| ID | Object | Pitch (units) | Notes |
+|---:|---|---|---|
+| 211 | Colored Inner Square | 30 × 30 (13k+ gaps of 30 on each axis) | The standard fill block |
+| 207 | Colored Square | 30 × 30 | |
+| 916 | Quarter Colored Block | 15 × 15 | |
+| 917 | One-Sixteenth Colored Block | 7.5 × 7.5 | |
+| 220 | Colored Small Square | ~15 | |
+| 693 | Decorative Colored Slope | 30 × 30 triangle | |
+| 507 | 3DL Top Middle | 30 long | Thickness not measurable from placements |
+| 468 | Outline Top | 30 long | |
+| 1753 | Thin Line | 30 long | |
+
+Tiling pitch proves the *cell* size, not the exact painted edge or line thickness. Before the art pipeline converts
+vector shapes into objects, a **calibration test level** places each primitive at known transforms over a grid. You
+screenshot it in-game and I fit the exact sprite bounds and pivots. That's the first step of Phase 4 (rule C10).

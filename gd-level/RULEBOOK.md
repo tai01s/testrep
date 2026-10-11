@@ -22,13 +22,17 @@ Source tags used below:
 
 | | |
 |---|---|
-| Palette | Blue-black. The background is blue-black and the level follows it. |
-| Difficulty | Extreme demon, **around AREDL #600** (Bloodbath / Sapphire Angel / Monstercat tier). **PENDING Q2** |
-| Song | Your YouTube link. **PENDING Q1:** I can't open YouTube from here. |
-| Length | Cut down unless we go XL. **PENDING Q6** |
+| Palette | Blue-black, **no accent colour** (confirmed). Only blues, ice white and black. |
+| Deco style | **Custom art** (confirmed): shapes built from primitives, not default blocks. See §6.14. |
+| Difficulty | Extreme demon, **around AREDL #600** (Bloodbath / Sapphire Angel / Monstercat tier). **Confirmed.** |
+| Song | **"Castle Of Shadows" (Instrumental) by SlyphStorm** (2013). Identified from the video ID by web search. No Newgrounds upload found, so it's a **NONG**. **PENDING:** the audio file. |
+| Length | **Long, 1–2 min** (confirmed). The song (vocal version listed at 4:07) gets cut down. |
+| Testing | **A macro bot proves each part is possible; you check it feels fair** (confirmed). |
+| Theme | **Moonlit gothic castle** (confirmed). The moon is the single light source (§6.15). |
 | Priority | Deco first, but gameplay must be balanced and fair. |
-| Format | A `.gmd` you import with GDShare (the same format you sent me). GD runs the physics. |
-| Object limit | None. Your references go up to 414k objects. Performance (active objects on screen) still matters (§6.12). |
+| Format | A `.gmd` you import with GDShare on PC + Geode (confirmed). GD runs the physics. |
+| Object limit | None: you have a bypass mod (confirmed). Performance (active objects on screen) still matters (§6.12). |
+| Verifier | **Someone else** (confirmed). The level targets the #600 band, not one person's skill. |
 
 ---
 
@@ -134,9 +138,14 @@ for editor guides (keys 498/501) `[GDCS bpm]`.
 - ±1 step ≈ ±5.9%.
 - Only use it if a small, deliberate change sounds right. Never use it to "fix" sync. `[GDCS song-edit-song]`
 
-**S5 (SHOULD).** Target length is **PENDING Q6**.
-- Around #600, 57% of extremes are tagged Long; 18% XL; 9% XXL `[DATA]`.
-- My default proposal: keep intro-to-final-drop at **~70–110 s**.
+**S5 (MUST).** Target length: **Long, 1–2 min** (confirmed). Around #600, 57% of extremes are tagged Long `[DATA]`.
+I'll propose the exact cut from the song map; aim for about 75–115 s of gameplay.
+
+**S6 (MUST).** This song is a **NONG**, so cuts are baked into the mp3, not done with in-level Song triggers.
+- Crossfades at the cut points, made on the beat grid.
+- The upload uses a placeholder Newgrounds song ID. The description names the real song and where to get it
+  (the Jukebox mod on Geode handles the swap).
+- The level's start offset stays at 0 so the mp3 and the level line up exactly.
 
 ---
 
@@ -249,7 +258,7 @@ portal sets up a clean entry `[GDCS sync-rhythm, creating-gameplay]`.
 
 `[GDCS sync-rhythm]`
 
-**B7 (MUST).** **Difficulty target** (**PENDING Q2**): consistent "overall" difficulty, extreme but fair.
+**B7 (MUST).** **Difficulty target: around AREDL #600** (confirmed): consistent "overall" difficulty, extreme but fair.
 - No single choke point far above the level's average. Choke points are a common complaint at this tier
   `[DATA tags]`.
 - Mechanics are introduced before they're tested `[GDCS progression, fairness]`.
@@ -288,7 +297,7 @@ shouldn't react `[GDCS consistent-gameplay]`.
 - **Test:** greyscale screenshot (the "123" process). If the path doesn't read in grey, fix the values, not the hues
   `[GDCS light-3, backgrounds]`.
 
-### 6.2 Palette (proposal, PENDING Q5 for the accent)
+### 6.2 Palette (proposal; no accent confirmed)
 
 | Role | Proposed colour | Value | Notes |
 |---|---|---:|---|
@@ -300,11 +309,18 @@ shouldn't react `[GDCS consistent-gameplay]`.
 | Gameplay rim / OBJ (1004) | `#cfe8ff` (ice white) | 100% | Antarctic Lights uses `#c2ebff` `[REF]` |
 | Glow A (blending) | `#1d4fd6` | — | Main light colour; shows on black `[GDCS blending]` |
 | Glow B (blending) | `#3fa8ff` | — | Highlights, drops |
-| Accent | **PENDING Q5**: none / violet `#8a7dff` / amber `#ffb347` | — | ≤ 10% of screen colour `[GDCS colour 2–4]` |
+| Accent | **None** (confirmed) | — | Interest comes from value, saturation and hue-shift inside the blue window instead |
 
 - **Hue window: 205°–235°** for about 90% of colour. Hue-shift slightly cooler (cyan) in highlights and warmer
   (indigo) in shadows `[GDCS colour 2]`.
-- Proportions: about 60:30:10 for dark body : mid blues : bright/accent `[GDCS evenness, colour 4]`.
+- Proportions: about 60:30:10 for dark body : mid blues : bright highlights `[GDCS evenness, colour 4]`.
+- **With no accent colour, the palette is monochromatic.** GD Creator School calls this the hardest scheme: "requires
+  a good grasp and understanding of values" `[GDCS colour 3]`. So:
+  - **Value** is the main contrast: a ladder of about 7 steps from `#000000` to `#cfe8ff`.
+  - **Saturation** is the second: greyish blues for bodies, saturated blue only for light and focus.
+  - **Hue shift** is the third, kept small: cooler/cyan in highlights, warmer/indigo in shadows.
+- Focus points (the path, the drop) get the brightest values and the most saturation. Nothing else may out-shine
+  them.
 - **Pulses stay in the blue range and in the level's brightness range.** A cold level gets blue pulses
   `[GDCS colour 4]`.
 
@@ -456,6 +472,125 @@ Never on functional detail.
 - Random hue pulses that break the blue mood.
 - "High detail, low contrast" mush `[GDCS polishing]`.
 
+### 6.14 Custom art (confirmed style)
+
+`[GDCS using-deco-objects, detail-objects, perspective 1–3, light 2/4/5]` `[DATA custom-art refs]`
+
+Your most custom-art references, measured:
+
+| Level | Deco objects off the 7.5-unit grid | Rotated off 90° |
+|---|---:|---:|
+| Thinking Space II | 99.6% | 53% |
+| GRIEF | 90% | 42% |
+| Society | 87% | 30% (15% warped) |
+
+How they build shapes:
+- **Lines:** 3DL lines (507/508), mostly rotated. Society uses about 39k of them.
+- **Fills:** Colored Inner Square (211), scaled and rotated.
+- **Polygon pieces:** decorative slopes (693/694).
+- **Repurposed detail objects:** jagged rocks, clouds, drips, chains, grass toppers, scaled and rotated for their
+  *shape*.
+- **Shading:** HSV shifts on a few channels (Thinking Space II shifts 76% of its rock pieces).
+
+**C1 (MUST). Shape first.**
+- Every asset starts as its simplest silhouette: rectangle, triangle, circle.
+- Then major shape details, then minor ones, then light, then texture.
+- A wrong shape can't be fixed with detail.
+
+**C2 (MUST). Build from primitives.**
+- **Polygons:** triangles + rectangles (fill squares and slopes), or points joined by lines/glow for outlines.
+- **Curves:** rotated line segments, or warped premade curves.
+- **Fill corners:** amateur gaps at corners are a polish fail `[GDCS using-deco-objects]`.
+
+**C3 (MUST). One light source per part, consistent.**
+- Lit sides face the light; form shadows on the far side; cast shadows go the same way.
+- Shadow edges soften with distance.
+- Add occlusion where surfaces meet, and rim light on edges against the background.
+- `[GDCS light-1, light-2]`
+
+**C4 (MUST). Atmospheric perspective for depth.**
+- Further layers move toward the BG colour, lose contrast and lose detail.
+- Nearer layers keep the full value range.
+- With no accent, this is the main way to read depth.
+- `[GDCS light-5, backgrounds]`
+
+**C5 (SHOULD). Perspective.**
+- Pick a horizon line per part to say where the viewer stands.
+- Use orthographic depth (offset copies + parallel connecting lines, like 3DL) for architecture.
+- Use vanishing points only for set pieces.
+- `[GDCS perspective-1–3]`
+
+**C6 (MUST). Implied texture.**
+- Texture only where focus is, simplified further away.
+- Never texture by spamming tiny objects.
+- `[GDCS light-5]`
+
+**C7 (MUST). Shading system.**
+- Each material gets **one base channel + HSV value steps** (copy-colour channels or object HSV), not dozens of
+  unrelated colours.
+- Then one colour trigger re-grades the whole material for drops and pulses.
+- `[REF]`
+
+**C8 (MUST). Layer quirks for custom art.**
+- Blending over non-blending only works when the non-blending part is much brighter; otherwise it looks foggy.
+- Animated and particle objects render one Z layer below others on the same layer, so they go one layer up.
+- Partial masking (hiding an object's base or detail colour) is how odd shapes get made from detail objects.
+- `[GDCS using-deco-objects, detail-objects]`
+
+**C9 (MUST). Assets.**
+- Build a small asset kit per part (wall pieces, edges, caps, debris), then recombine.
+- Reuse beats redrawing: it's consistent, faster and lighter.
+- `[GDCS making-blocks]`
+
+**C10 [MINE]. How I'll build it.**
+- I draw each asset as **vector shapes** (polygons, curves, lines with exact coordinates).
+- Code converts them into GD primitives with exact position, rotation, scale and warp. No hand-eyeballing of
+  angles.
+- Before that, I measure each primitive's true sprite size and pivot from your reference files, so the conversion is
+  exact.
+- You still judge the result in-game; screenshots from you are the final check.
+
+### 6.15 Theme: the moonlit castle (proposal, refined per part once the song is mapped)
+
+**Main idea:** the player moves through a gothic castle at night, lit only by the moon.
+
+**One light source: the moon.**
+- It's a fixed point per part, always in the sky behind or above the castle.
+- Every lit edge faces it.
+- Shadows fall away from it, into blue-black.
+- No torches or warm light; that would need an accent colour, and we have none.
+
+**Value roles** (§6.2 ladder):
+
+| Element | Value | Notes |
+|---|---|---|
+| Moon and moonlit stone edges | Brightest: ice `#cfe8ff` | Reserved for the path and the moon |
+| Lit wall faces | Mid blue-greys | |
+| Shadowed faces | Dark navy | |
+| Silhouettes (foreground arches, far towers) | Near-black | |
+
+**Secondary ideas** to place on the song map, one or two per part:
+- outer walls and battlements
+- the gate and drawbridge
+- the courtyard under the moon
+- the great hall with tall pointed windows (moonlight shafts)
+- a crypt/dungeon (darkest part)
+- a spiral stair or tower climb
+- the rooftop and spires (the climax, closest to the moon)
+
+**Signature shapes:** pointed gothic arches, tall narrow windows, crenellations, spires, buttresses, iron chains and
+gates, stone block coursing (texture only near the path).
+
+**Atmosphere:**
+- Mist bands (low-opacity gradients) for atmospheric perspective.
+- A few drifting dust or mote particles in moonbeams.
+- Bats only as rare air deco, if at all.
+
+**Gameplay mapping** `[MINE]`:
+- Castle structures *are* the blocks: walls, ledges, stairs, beams.
+- Hazards are visually iron: spikes, gate teeth, chains.
+- This keeps the "triangles = danger" language consistent.
+
 ---
 
 ## 7. Build process and deliverables
@@ -487,27 +622,21 @@ Never on functional detail.
 
 ---
 
-## 9. PENDING: questions blocking Phase 1
+## 9. Questions (only the audio file is still open)
 
-**Q1. Song.**
-- I can't open YouTube from this environment.
-- Please give me the **title + artist**, and if you can, **attach the audio file** here (mp3/ogg/wav).
-- Is it on **Newgrounds / the GD music library** (ID?), or would it be a **NONG**?
+**Q1. Song.** ~~Which song?~~ Identified: "Castle Of Shadows" (Instrumental), SlyphStorm, a NONG.
+**Still needed: the audio file** (the exact version you want, mp3/ogg/wav). The hosts are blocked here.
 
-**Q2. "Top 600".** Does it mean:
-- **(a)** place *around* #600 (Bloodbath tier, my reading), or
-- **(b)** anywhere *inside* the top 600 (harder is fine)?
+**Q2. "Top 600".** ~~Around #600 or anywhere inside?~~ **Answered: around #600, verified by someone else.**
 
-And who verifies it: you? What's your hardest beaten demon?
+**Q3. Testing loop.** ~~How?~~ **Answered: bot + you.**
 
-**Q3. Testing loop.** Can you playtest each part from its Start Pos and send short reports? Do you use a macro bot?
+**Q4. Setup.** ~~Platform?~~ **Answered: PC + Geode + GDShare, object-limit bypass available.**
 
-**Q4. Setup.** Confirm: PC, Geode + GDShare import, GD 2.2081? Do you have an object-limit bypass mod (your refs
-need one)?
+**Q5. Deco direction.** ~~Style/accent?~~ **Answered: custom art, no accent.**
 
-**Q5. Deco direction.**
-- Style: glow-design (Antarctic Lights-like), modern/effects (Society/ORBIT-like), custom art, or a mix?
-- Accent: none / violet / amber?
-- Any theme or story (space, deep sea, night city, ice, abstract…)?
+**Q6. Length.** ~~Long or XL?~~ **Answered: Long (1–2 min).**
 
-**Q6. Length.** Long (about 60–120 s) or XL (2 min+)?
+**Q7. Theme.** ~~Subject?~~ **Answered: moonlit castle.**
+
+**Only Q1 (the audio file) still blocks Phase 1.**
