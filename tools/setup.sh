@@ -78,6 +78,10 @@ exit ${PIPESTATUS[0]}
 WRAP
 chmod +x "$BIN/school"
 
+# Also install the skill user-wide so Codex finds it from any folder.
+SRC="$(cd "$(dirname "$0")/.." && pwd)/.agents/skills/delegate-to-school-model"
+if [ -f "$SRC/SKILL.md" ]; then mkdir -p "$HOME/.agents/skills" && cp -r "$SRC" "$HOME/.agents/skills/"; echo "skill installed to ~/.agents/skills"; fi
+
 # Warm-up while setup still has internet: downloads OpenCode's provider package and checks the keys.
 echo "Warm-up call to the school model..."
 if out=$(timeout 120 "$BIN/school" "Reply with exactly: OK" 2>&1); then
