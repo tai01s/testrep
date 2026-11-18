@@ -52,6 +52,8 @@ cat > "$BIN/school" <<WRAP
 # Spreads runs over FUTURELAB_KEY_1..n, max \${SCHOOL_PER_KEY:-4} at once per key. Extra runs wait for a free slot.
 . "$HOMEDIR/env"
 export OPENCODE_CONFIG="$HOMEDIR/opencode.json"
+# Keep repo/user skills and AGENTS-style instructions away from the school model (it got confused by them)
+export OPENCODE_DISABLE_EXTERNAL_SKILLS=1 OPENCODE_DISABLE_CLAUDE_CODE=1
 WRAP
 cat >> "$BIN/school" <<'WRAP'
 PER_KEY=${SCHOOL_PER_KEY:-4}
