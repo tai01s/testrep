@@ -10,7 +10,10 @@ BASE_URL="${FUTURELAB_BASE_URL:-https://futurelab.robo4you.at/v1}"
 if [ -w /usr/local/bin ] && mkdir -p /opt/school 2>/dev/null; then
   BIN=/usr/local/bin; HOMEDIR=/opt/school
 else
-  BIN="$HOME/.local/bin"; HOMEDIR="$HOME/.school"
+  # Not admin: put `school` next to npm's global commands (already on the agent's PATH), else ~/.local/bin.
+  NPMBIN="$(npm prefix -g 2>/dev/null)/bin"
+  if [ -d "$NPMBIN" ] && [ -w "$NPMBIN" ]; then BIN="$NPMBIN"; else BIN="$HOME/.local/bin"; fi
+  HOMEDIR="$HOME/.school"
   mkdir -p "$BIN" "$HOMEDIR"
   grep -q 'school-kit PATH' ~/.bashrc 2>/dev/null || echo "export PATH=\"$BIN:\$PATH\"  # school-kit PATH" >> ~/.bashrc
   export PATH="$BIN:$PATH"
@@ -25,7 +28,7 @@ umask 077
   for i in 1 2 3 4 5 6; do v="FUTURELAB_KEY_$i"; [ -n "${!v}" ] && echo "export $v=\"${!v}\""; done
 } > "$HOMEDIR/env"
 umask 022
-chmod 644 "$HOMEDIR/env"
+case "$HOMEDIR" in "$HOME"/*) chmod 600 "$HOMEDIR/env" ;; *) chmod 644 "$HOMEDIR/env" ;; esac   # private when it lives in your home folder
 
 cat > "$HOMEDIR/opencode.json" <<'JSON'
 {
@@ -83,6 +86,8 @@ SRC="$(cd "$(dirname "$0")/.." && pwd)/.agents/skills/delegate-to-school-model"
 if [ -f "$SRC/SKILL.md" ]; then mkdir -p "$HOME/.agents/skills" && cp -r "$SRC" "$HOME/.agents/skills/"; echo "skill installed to ~/.agents/skills"; fi
 
 # Warm-up while setup still has internet: downloads OpenCode's provider package and checks the keys.
+echo "school installed at $BIN/school"
+for l in /usr/local/bin "$HOME/.local/bin"; do [ "$BIN" != "$l" ] && [ -d "$l" ] && [ -w "$l" ] && ln -sf "$BIN/school" "$l/school"; done
 echo "Warm-up call to the school model..."
 if out=$(timeout 120 "$BIN/school" "Reply with exactly: OK" 2>&1); then
   echo "school model answered: $(echo "$out" | tail -1)"

@@ -8,7 +8,8 @@ description: Use on any task with heavy reading or mechanical work (whole chapte
 How to reach it: run `school "<brief>"` in the shell, from the folder that holds the source files.
 - It spreads runs over 3 API keys, max 4 at once per key (12 total). Extra runs wait for a free slot, so launch independent briefs in parallel:
   `school "<brief 1>" > /tmp/r1.txt & school "<brief 2>" > /tmp/r2.txt & wait`
-- If `school` is missing or says no keys were found, the environment's setup script didn't run: tell me in one line and do the work yourself.
+- If `school` is not found, try `~/.local/bin/school` and `$(npm prefix -g)/bin/school` before giving up.
+- If it is still missing or says no keys were found, the environment's setup script didn't run: tell me in one line and do the work yourself.
 
 Use ONLY this model for delegation. It's fast and free but weaker at reasoning, and it may invent quotes or page numbers.
 You are the lead: it gathers, you judge.
